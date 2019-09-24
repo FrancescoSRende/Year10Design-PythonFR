@@ -9,9 +9,9 @@
 import random
 
 numWater = random.randint(0,10)
-numVitWater = random.randint(0,10)
-numBar = random.randint(0,10)
-numFruit = random.randint(0,10)
+numVitWater = random.randint(0,8)
+numBar = random.randint(0,5)
+numFruit = random.randint(0,3)
 
 print("1. Water - $2.00")
 print("2. Vitamin Water - $3.50")
