@@ -4,7 +4,7 @@
 # Author: Francesco Rende
 # Upper Canada College
 
-# Put down some options for the user to choose from...
+#Randomly setting up whether the items are in stock or not, proportional to their apparent popularity
 
 import random
 
@@ -13,6 +13,17 @@ numVitWater = random.randint(0,8)
 numBar = random.randint(0,5)
 numFruit = random.randint(0,3)
 
+options = [numWater, numVitWater, numBar, numFruit]
+
+priceWater = 2.00
+priceVitWater = 3.5
+priceBar = 1.00
+priceFruit = 1.25
+
+prices = [priceWater, priceVitWater, priceBar, priceFruit]
+
+# Put down some options for the user to choose from...
+
 print("1. Water - $2.00")
 print("2. Vitamin Water - $3.50")
 print("3. Granola Bar - $1.00")
@@ -20,88 +31,79 @@ print("4. Fruit by the Foot - $1.25")
 
 choice = int(input("Please make your selection. \n"))
 
+# Basic skeleton of how to take a variable from one function and use it in another function
+
+# def func1():
+# 	mynewvar = 10
+# 	func2(mynewvar)
+
+# def func2(var):
+# 	print(str(var))
+
+# func1()
+
+
 def giveFood():
-	global numWater, numVitWater, numBar, numFruit
+	global options, prices
 
 	money = 0
 	change = 0
 
-	if choice == 1:
-		if numWater == 0:
-			print("Option not in stock.")
-
-		else:
-			numWater = numWater - 1
-			money = float(input("Please input $2.00. \n"))
-			
-			if money == 2.0:
-				print("Here is your water. Have a great day!")
-			elif money < 2.0:
-				print("Insufficient money, please try again.")
-			elif money > 2.0:
-
-				change = money - 2.0
-				change = round(change, 2)
-				print("You have $"+str(change)+" in change. Here is your water. Have a great day!")
-
-	elif choice == 2:
-		if numVitWater == 0:
-			print("Option not in stock.")
-
-		else:
-			numVitWater = numVitWater - 1
-			money = float(input("Please input $3.50. \n"))
-			
-			if money == 3.5:
-				print("Here is your vitamin water. Have a great day!")
-			elif money < 3.5:
-				print("Insufficient money, please try again.")
-			elif money > 3.5:
-
-				change = money - 3.5
-				change = round(change, 2)
-				print("You have $"+str(change)+" in change. Here is your vitamin water. Have a great day!")
-
-	elif choice == 3:
-		if numBar == 0:
-			print("Option not in stock.")
-		
-		else:
-			numBar = numBar - 1
-			money = float(input("Please input $1.00. \n"))
-			
-			if money == 1.0:
-				print("Here is your granola bar. Have a great day!")
-			elif money < 1.0:
-				print("Insufficient money, please try again.")
-			elif money > 1.0:
-
-				change = money - 1.0
-				change = round(change, 2)
-				print("You have $"+str(change)+" in change. Here is your granola bar. Have a great day!")
-
-	elif choice == 4:
-		if numFruit == 0:
-			print("Option not in stock.")
-
-		else:
-			numFruit = numFruit - 1
-			money = float(input("Please input $1.25. \n"))
-			
-			if money == 1.25:
-				print("Here is your Fruit by the Foot™. Have a great day!")
-			elif money < 1.25:
-				print("Insufficient money, please try again.")
-			elif money > 1.25:
-
-				change = money - 1.25
-				change = round(change, 2)
-				print("You have $"+str(change)+" in change. Here is your Fruit by the Foot™. Have a great day!")
+	
+	if options[choice - 1] == 0:
+		print("Option not in stock.")
 
 	else:
-		print ("This is not a valid choice")
+		options[choice - 1] == options[choice - 1] - 1
+		money = float(input("Please input $"+str(prices[choice - 1])+". \n"))
+
+		if money == prices[choice - 1]:
+			print("Here is your item. Have a great day.")
+
+		elif money < prices[choice - 1]:
+			print("Insufficient credit, please try again.")
+
+		elif money > prices[choice - 1]:
+
+			change = money - prices[choice - 1]
+			change = round(change, 2)
+			print("You have $"+str(change)+" in change. Here is your item. Have a great day!")
+
+	stockUpdate(numWater, numVitWater, numBar, numFruit)
+
+def stockUpdate(numWater, numVitWater, numBar, numFruit):
+
+	if choice == 1:
+
+		if numWater != 0:
+			print("There are now "+str(numWater)+" bottles of water left.")
+		else:
+			print("Water is now out of stock.")
+
+	elif choice == 2:
+
+		if numVitWater != 0:
+			print("There are now "+str(numVitWater)+" bottles of vitamin water left.")
+		else:
+			print("Vitamin water is now out of stock.")
+
+	elif choice == 3:
+
+		if numBar != 0:
+			print("There are now "+str(numBar)+" granola bars left.")
+		else:
+			print("Granola bars are now out of stock.")
+
+	elif choice == 4:
+		
+		if numFruit != 0:
+			print("There are now "+str(numFruit)+" Fruit by the Foot™s left.")
+		else:
+			print("Fruit by the Foot™ is now out of stock.")
 
 giveFood()
+
+stockUpdate(numWater, numVitWater, numBar, numFruit)
 
 # This is a way to gracefully exit the program
 input("Press ENTER to quit the program")
