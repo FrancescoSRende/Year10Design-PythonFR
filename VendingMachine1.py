@@ -59,7 +59,7 @@ def giveFood():
 		options[choice - 1] == options[choice - 1] - 1
 
 		if money == prices[choice - 1]:
-			money == money - prices[choice - 1]
+			money = money - prices[choice - 1]
 			print("Here is your item. Have a great day.")
 
 		elif money < prices[choice - 1]:
@@ -67,7 +67,7 @@ def giveFood():
 
 		elif money > prices[choice - 1]:
 
-			money == money - prices[choice - 1]
+			money = money - prices[choice - 1]
 
 			print("Here is your item. You have $"+str(money)+" in change.")
 
