@@ -41,7 +41,7 @@ money = float(input("How much money do you have? \n"))
 
 def giveFood():
 	
-	global money, choice, prices
+	global choice, prices, money
 
 	print("1. Water - $2.00")
 	print("2. Vitamin Water - $3.50")
