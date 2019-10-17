@@ -37,27 +37,33 @@ def specificArticle():
 	if articleNumber < 0:
 		print("Invalid number given.")
 
-	print("What information do you want about the article?")
-	print("1. Title")
-	print("2. Description")
-	print("3. URL")
-	print("4. Publish Date")
-	print("5. Source")
-	print("6. Source URL")
-	informationRequested = input("Please input all fields you want to see. Ensure there are no spaces between numbers.\n")
-
-	for i in range(len(informationRequested)):
-		if int(informationRequested[i]) < 7:
-			articleAttributeFunctions[i-1]
-		else:
-			print("Invalid input.")
-
-	openArticle = input("Would you like to open up your article? y/n \n")
-
-	if openArticle.lower() == "y":
-		webbrowser.open(jsonData['articles'][articleNumber]['url'])
 	else:
-		print("")
+		print("What information do you want about the article?")
+		print("1. Title")
+		print("2. Description")
+		print("3. URL")
+		print("4. Publish Date")
+		print("5. Source")
+		print("6. Source URL")
+		informationRequested = input("Please input all fields you want to see. Ensure there are no spaces between numbers.\n")
+
+		for i in range(len(informationRequested)):
+			if informationRequested[i].isdigit:
+
+				if 0 < int(informationRequested[i]) < 7:
+					articleAttributeFunctions[int(informationRequested[i])]
+				else:
+					print("Invalid number; please ensure that they are from 1 to 6.")
+
+			else:
+				print("Invalid input.")
+
+		openArticle = input("Would you like to open up your article? y/n \n")
+
+		if openArticle.lower() == "y":
+			webbrowser.open(jsonData['articles'][articleNumber]['url'])
+		else:
+			print("")
 
 #---------------------------------------------------------------------------------------------------------
 
