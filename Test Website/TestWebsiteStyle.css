@@ -6,12 +6,16 @@ body {
 @import url('https://fonts.googleapis.com/css?family=DM+Serif+Text&display=swap');
 
 .title {
+	font-family: 'Crimson Text', serif;
+	font-size: 24px;
 	margin-top: 0px;
+	text-align: center;
 	padding-left: 10px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
+	margin-left: 150px;
 }
 
 .topnav {
@@ -36,6 +40,24 @@ body {
 .topnav a.active {
 	background-color: #ff0000;
 	color: white;
+}
+
+.mainpics {
+	margin-top: 0px;
+	text-align: center;
+	padding-left: 100px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 490px;
+	height: 326px;
+}
+
+.main {
+	font-family: 'Crimson Text', serif;
+	margin-left: 310px;
+	font-size: 24px;
+	padding: 0px 10px;
 }
 
 .pics {
@@ -75,13 +97,6 @@ body {
 
 .sidenav a:hover {
 	color: #f1f1f1;
-}
-
-.main {
-	font-family: 'Crimson Text', serif;
-	margin-left: 310px;
-	font-size: 24px;
-	padding: 0px 10px;
 }
 
 .sources {
