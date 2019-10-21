@@ -4,6 +4,12 @@ import pprint
 import webbrowser
 
 articleNumber = 0
+articleTitle = ""
+articleDescription = ""
+articleURL = ""
+publishDate = ""
+articleSource = ""
+articleSourceURL = ""
 jsonData = ""
 request = ""
 
@@ -30,7 +36,7 @@ def generalInfo():
 
 def specificArticle():
 
-	global articleNumber
+	global articleNumber, articleTitle, articleDescription, articleURL, publishDate, articleSource, articleSourceURL
 
 	articleNumber = int(input("Which article would you like to get more information about? Please input a number. \n")) - 1
 
@@ -76,12 +82,56 @@ def specificArticle():
 
 		if openArticle.lower() == "y":
 			webbrowser.open(jsonData['articles'][articleNumber]['url'])
+			writeHTML(articleTitle, articleDescription, articleURL, publishDate, articleSource, articleSourceURL)
 		else:
 			print("")
+			writeHTML(articleTitle, articleDescription, articleURL, publishDate, articleSource, articleSourceURL)
+
+#---------------------------------------------------------------------------------------------------------
+
+def writeHTML(articleTitle, articleDescription, articleURL, publishDate, articleSource, articleSourceURL):
+	myfile = open("APIWebpage.html","w")
+	myfile.write("""
+
+	<!DOCTYPE html>
+	<html>
+
+		<head>
+			<title>GNews API Website</title>
+			<link rel="stylesheet" href="APIWebsiteStyle.css" href="APIAnimation.css">
+		</head>
+
+		<body>
+
+		<div class="sidenav">
+			<iframe style="margin-left: 7px; margin-top: 10px;" width="280" height="230" src="https://www.youtube.com/watch?v=NoChroQIA10"></iframe>
+		</div>
+
+		<div class="title animateMe fadeIn">
+			<h1>GNews API Website</h1>
+			<p>This website is based off of the <a href='https://gnews.io/'>GNews API</a>.</p>
+		</div>
+
+		<div class="subtitle">
+			<h1 style="background-color:#ff0000;">INFORMATION REQUESTED</h1>
+		</div>
+
+		<div class="main animateMe fadeIn">
+			<p>Article title: """+articleTitle+"""</p>
+			<p>Article description: """+articleDescription+"""</p>
+			<p>Article URL: <a href=""" + articleURL + """>""" + articleURL + """</a></p>
+			<p>Publish date: """+publishDate+"""</p>
+			<p>Article source: """+articleSource+"""</p>
+			<p>Article source URL: <a href=""" + articleSourceURL + """>""" + articleSourceURL + """</a></p>
+		</div>
+		</body>
+
+	</html>""")
 
 #---------------------------------------------------------------------------------------------------------
 
 generalInfo()
+writeHTML(articleTitle, articleDescription, articleURL, publishDate, articleSource, articleSourceURL)
 
 getspecific = input("Would you like to get information about a specific article? y/n \n")
 
