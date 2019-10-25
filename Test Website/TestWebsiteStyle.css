@@ -59,6 +59,18 @@ body {
 	padding: 0px 10px;
 }
 
+.textlist {
+	font-family: 'Crimson Text', serif;
+	margin-left: 310px;
+	font-size: 16px;
+	padding: 0px 10px;
+}
+
+.picslist {
+	margin-top: 10px;
+	margin-left: 156px;
+}
+
 .pics {
 	float: right;
 }
