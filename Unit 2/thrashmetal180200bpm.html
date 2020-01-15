@@ -1,0 +1,88 @@
+
+<html>
+
+<head>
+	<title>Thrash Metal: 180 - 200BPM</title>
+	<!-- my style (css) file to set the different classes and ids for the website -->
+	<link rel="stylesheet" href="indexStyle.css">
+</head>
+
+
+<body>
+
+<div class="title">
+	<h2>Thrash Metal: 180 - 200BPM</h2>
+	<h3>Click the play buttons to open up the song.</h3>
+</div>
+
+<!-- this code creates a search bar that is linked to a function below -->
+<div class="searchBar">
+	<input id="songInput" type="text" placeholder="Search.." name="search">
+	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
+</div>
+
+<button class='playbutton' onclick="lucretia()"></button>
+<p class='songinfo'>Lucretia - <a href="megadeth.html">Megadeth</a> (Rust In Peace, 1990)</p>
+
+<button class='playbutton' onclick="tornadoOfSouls()"></button>
+<p class='songinfo'>Tornado of Souls - <a href="megadeth.html">Megadeth</a> (Rust In Peace, 1990)</p>
+
+	<!-- introduces a play button -->
+<button class='playbutton' onclick="battery()"></button>
+<p class='songinfo'>Battery - <a href="metallica.html">Metallica</a> (Master of Puppets, 1986)</p>
+
+<!-- <a href="#" onclick="play()">Play YouTube Video</a> -->
+
+<button class='playbutton' onclick="disposableHeroes()"></button>
+<p class='songinfo'>Disposable Heroes - <a href="metallica.html">Metallica</a> (Master of Puppets, 1986)</p>
+
+
+</body>
+
+
+<script>
+
+	function lucretia() {
+		window.open("https://www.youtube.com/watch?v=8JGLQKuUrvY");
+	}
+
+	function tornadoOfSouls() {
+		window.open("https://www.youtube.com/watch?v=sONL6QUMR9E");
+	}
+
+	function battery() {
+		window.open("https://www.youtube.com/watch?v=17E-zFb-0aE");
+	}
+
+	function disposableHeroes() {
+		window.open("https://www.youtube.com/watch?v=6rNELTZO0QQ");
+	}
+
+
+
+
+
+
+	// this code is used to play a song when clicked
+	// for some reason it doesnt work
+	// so i'm just pushing it to the side, in case I might need it later
+
+
+	// var element = getElementById("battery");
+		// element.addEventListener("click", function(){
+		// window.open("https://www.youtube.com/watch?v=17E-zFb-0aE");
+	// });
+
+
+
+	// other code that doesn't work
+	
+	//function play() {
+		//if(player) {
+			//player.playVideo();
+		//}
+	//}
+
+</script>
+
+</html>

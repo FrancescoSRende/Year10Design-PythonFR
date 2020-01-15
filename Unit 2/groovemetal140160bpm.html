@@ -1,0 +1,45 @@
+
+<html>
+
+<head>
+	<title>Groove Metal: 140 - 160BPM</title>
+	<!-- my style (css) file to set the different classes and ids for the website -->
+	<link rel="stylesheet" href="indexStyle.css">
+</head>
+
+
+<body>
+
+<div class="title">
+	<h2>Groove Metal: 140 - 160BPM</h2>
+	<h3>Click the play buttons to open up the song.</h3>
+</div>
+
+<!-- this code creates a search bar that is linked to a function below -->
+<div class="searchBar">
+	<input id="songInput" type="text" placeholder="Search.." name="search">
+	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
+</div>
+
+<button class='playbutton' onclick="domination()"></button>
+<p class='songinfo'>Domination - <a href="pantera.html">Pantera</a> (Cowboys From Hell, 1990)</p>
+
+<button class='playbutton' onclick="imBroken()"></button>
+<p class='songinfo'>I'm Broken - <a href="pantera.html">Pantera</a> (Far Beyond Driven, 1994)</p>
+
+</body>
+
+
+<script>
+
+	function domination() {
+		window.open("https://www.youtube.com/watch?v=nTJHkUze9lc");
+	}
+
+	function imBroken() {
+		window.open("https://www.youtube.com/watch?v=DBOfabotqP8");
+	}
+
+</script>
+
+</html>

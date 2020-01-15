@@ -1,0 +1,49 @@
+.topnav {
+	overflow: hidden;
+	background-color: #111;
+}
+
+.playbutton {
+	width: 20px;
+	height: 20px;
+	border-style: solid;
+	box-sizing: border-box;
+	border-width: 10px 0px 10px 20px;
+	border-color: transparent transparent transparent #202020;
+}
+
+.songinfo {
+	padding: -10px 0px 0px 0px;
+	font-family: 'Crimson Text', serif;
+	font-size: 16px;
+	margin-left: 100px;
+}
+
+.search-container button {
+	float: right;
+	padding: 6px 10px;
+	margin-top: 8px;
+	margin-right: 16px;
+	background: #ddd;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
+}
+
+.search-container button:hover {
+	background: #ccc;
+}
+
+.title {
+	font-family: 'Crimson Text', serif;
+	font-size: 24px;
+	text-align: center;
+}
+
+.searchBar {
+	margin-bottom: 10px;
+}
+
+.mainpics {
+	display: block;
+}
