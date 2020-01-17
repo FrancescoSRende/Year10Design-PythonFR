@@ -28,6 +28,8 @@
 	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
 </div>
 
+<p id="someoneIsSearchingSomething"></p>
+
 <button class='playbutton' onclick="hateMe()"></button>
 <p class='songinfo'>Hate Me - <a href="childrenofbodom.html">Children of Bodom</a> (Follow the Reaper, 2000)</p>
 
@@ -48,6 +50,13 @@
 	}
 
 	function search() {
+
+		var paragraph = document.getElementById("someoneIsSearchingSomething");
+		var text = document.createTextNode("Ruh roh! It looks like you're trying to search something. That doesn't work (currently). Stop it.");
+		paragraph.appendChild(text);
+
+
+
 		document.getElementById("songInput").value;
 		var songInfoStr = "Hate Me - Children of Bodom (Follow the Reaper, 2000)"
 		var n = songInfoStr.search("Hate");
