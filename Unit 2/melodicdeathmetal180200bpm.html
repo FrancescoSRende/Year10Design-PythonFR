@@ -30,11 +30,25 @@
 
 <p id="someoneIsSearchingSomething"></p>
 
-<button class='playbutton' onclick="hateMe()"></button>
-<p class='songinfo'>Hate Me - <a href="childrenofbodom.html">Children of Bodom</a> (Follow the Reaper, 2000)</p>
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="hateMe()"></button>
+	<p class='songinfo'>Hate Me - Children of Bodom (Follow the Reaper, 2000)</p>
+</div>
 
-<button class='playbutton' onclick="underGrassAndClover()"></button>
-<p class='songinfo'>Under Grass and Clover - <a href="childrenofbodom.html">Children of Bodom</a> (Hexed, 2019)</p>
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="underGrassAndClover()"></button>
+	<p class='songinfo'>Under Grass and Clover - Children of Bodom (Hexed, 2019)</p>
+</div>
+
+<!-- <div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="hateMe()"></button>
+	<p class='songinfo'>Hate Me - <a href="childrenofbodom.html">Children of Bodom</a> (Follow the Reaper, 2000)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="underGrassAndClover()"></button>
+	<p class='songinfo'>Under Grass and Clover - <a href="childrenofbodom.html">Children of Bodom</a> (Hexed, 2019)</p>
+</div> -->
 
 </body>
 
@@ -51,18 +65,69 @@
 
 	function search() {
 
-		var paragraph = document.getElementById("someoneIsSearchingSomething");
-		var text = document.createTextNode("Ruh roh! It looks like you're trying to search something. That doesn't work (currently). Stop it.");
-		paragraph.appendChild(text);
+		// a placeholder function until i can get the searching to work properly
+		// var paragraph = document.getElementById("someoneIsSearchingSomething");
+		// var text = document.createTextNode("Ruh roh! It looks like you're trying to search something. That doesn't work (currently). Stop it.");
+		// paragraph.appendChild(text);
 
 
+		var inputTitle = document.getElementById("songInput").value;
 
-		document.getElementById("songInput").value;
-		var songInfoStr = "Hate Me - Children of Bodom (Follow the Reaper, 2000)"
-		var n = songInfoStr.search("Hate");
-		console.log(n);
+		console.log(inputTitle);
+
+		var lengthVariable = inputTitle.length;
+
+		console.log(lengthVariable);
+
+
+		var myMusic = document.getElementsByClassName('music');
+
+		var songTitle = document.getElementsByClassName('songinfo')[i]
+		
+		console.log(songTitle);
+
+		var i;
+		for (i = 0; i < myMusic.length; i++) {
+
+			var displaySetting = myMusic[i].style.display;
+
+			// this piece of code checks to make sure that the inputted test is the same as the title of a song
+			if (inputTitle != songTitle[0..lengthVariable]) {
+				// if a song doesn't match, it is removed from the webpage
+				console.log("bad search");
+				document.getElementsByClassName('music')[i].style.display = 'none';
+				myMusic[i].style.display = 'none';
+			}
+
+			else {
+				// if a song does match it, it is displayed
+				console.log("good search");
+				console.log('hello');
+				document.getElementsByClassName('music')[i].style.display = 'block';
+			}
+
+
+			// this code was used to test out the ability to change the display settings on a small scale
+			// if (displaySetting == 'block') {
+			// 	// clock is visible. hide it
+			// 	console.log(displaySetting)
+			// 	document.getElementsByClassName('music')[i].style.display = 'none';
+			// 	myMusic[i].style.display = 'none';
+			// }
+			// else {
+			// 	// clock is hidden. show it
+			// 	console.log(displaySetting)
+			// 	console.log('hello')
+			// 	document.getElementsByClassName('music')[i].style.display = 'block';
+			// 	myMusic[i].style.display = 'block';
+			// }
+		}
+
 	}
 
 </script>
+
+
+
 
 </html>

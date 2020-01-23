@@ -4,6 +4,7 @@
 <html>
     <head>
     	<link rel="stylesheet" href="indexStyle.css">
+    	<title>Music From My Computer</title>
         <!-- HERE ARE YOUR FIREBASE and GOOGLE AUTHENICATION IMPORTS -->
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
@@ -45,7 +46,19 @@
 <audio src="Songs/But first, a word from today's sponsor, Raid Shadow Legends.WAV" id="audio3" class="audio"></audio>
 <p class='songinfo'>But first, a word from today's sponsor, Raid Shadow Legends - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
 
-<h3>Songs I put actual effort into:</h3>
+<button onclick = "play('audio4')">Play</button>
+<button onclick = "pause('audio4')">Pause</button>
+<button onclick = "stop('audio4')">Stop</button>
+<audio src="Songs/Mr. Jourdain.WAV" id="audio4" class="audio"></audio>
+<p class='songinfo'>Mr. Jourdain - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+
+<button onclick = "play('audio5')">Play</button>
+<button onclick = "pause('audio5')">Pause</button>
+<button onclick = "stop('audio5')">Stop</button>
+<audio src="Songs/Mohamed Bouazizi.WAV" id="audio5" class="audio"></audio>
+<p class='songinfo'>Mohamed Bouazizi - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+
+<!-- <h3>Songs I put actual effort into:</h3>
 
 <button onclick = "play('audio4')">Play</button>
 <button onclick = "pause('audio4')">Pause</button>
@@ -69,7 +82,7 @@
 <button onclick = "pause('audio7')">Pause</button>
 <button onclick = "stop('audio7')">Stop</button>
 <audio src="Songs/Selkies The Endless Obsession Solo.WAV" id="audio7" class="audio"></audio>
-<p class='songinfo'>Selkies The Endless Obsession (Jazz Guitar Solo Only) - Between the Buried and Me, cover by <a href="rendevous.html">Rendevous</a></p>
+<p class='songinfo'>Selkies The Endless Obsession (Jazz Guitar Solo Only) - Between the Buried and Me, cover by <a href="rendevous.html">Rendevous</a></p> -->
 
             <h1 id="uid" style="color: white;"></h1>
             
@@ -78,7 +91,7 @@
 
             <button onclick = "signin()" >Sign In</button>
            
-            <input type="text" id="commentID" value="Enter Comment">
+            <input type="text" id="commentID" placeholder="Enter comment" name="comment">
             
             <button onclick = "sendComment()">Submit Comment</button>
             <button onclick = "getComment()">Retrieve Comments</button>

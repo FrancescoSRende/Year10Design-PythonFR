@@ -1,0 +1,263 @@
+
+<!-- Welcome to some sample code to control your Firebase Database -->
+<!-- HERE IS YOUR HTML TO SET UP YOUR PAGE -->
+<html>
+    <head>
+    	<link rel="stylesheet" href="indexStyle.css">
+    	<title>Music From My Computer</title>
+        <!-- HERE ARE YOUR FIREBASE and GOOGLE AUTHENICATION IMPORTS -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <!-- Add SDKs for Firebase products that you want to use 
+          https://firebase.google.com/docs/web/setup#available-libraries -->
+ 
+    </head>
+
+    <body>
+
+<div class="title">
+	<h1>Music From My Computer</h1>
+</div>
+
+<h2>Click the play buttons to open up the song.</h2>
+
+<h3>Songs I wrote ironically:</h3>
+
+<button onclick = "play('audio1')">Play</button>
+<button onclick = "pause('audio1')">Pause</button>
+<button onclick = "stop('audio1')">Stop</button>
+<audio src="Songs/Mme. Loisel.WAV" id="audio1" class="audio"></audio>
+<p class='songinfo'>Mme. Loisel - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+
+<button onclick = "play('audio2')">Play</button>
+<button onclick = "pause('audio2')">Pause</button>
+<button onclick = "stop('audio2')">Stop</button>
+<audio src="Songs/Thierry Est Mort.WAV" id="audio2" class="audio"></audio>
+<p class='songinfo'>Thierry Est Mort - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+
+<button onclick = "play('audio3')">Play</button>
+<button onclick = "pause('audio3')">Pause</button>
+<button onclick = "stop('audio3')">Stop</button>
+<audio src="Songs/But first, a word from today's sponsor, Raid Shadow Legends.WAV" id="audio3" class="audio"></audio>
+<p class='songinfo'>But first, a word from today's sponsor, Raid Shadow Legends - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+
+<button onclick = "play('audio4')">Play</button>
+<button onclick = "pause('audio4')">Pause</button>
+<button onclick = "stop('audio4')">Stop</button>
+<audio src="Songs/Mr. Jourdain.WAV" id="audio4" class="audio"></audio>
+<p class='songinfo'>Mr. Jourdain - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+
+<button onclick = "play('audio5')">Play</button>
+<button onclick = "pause('audio5')">Pause</button>
+<button onclick = "stop('audio5')">Stop</button>
+<audio src="Songs/Mohamed Bouazizi.WAV" id="audio5" class="audio"></audio>
+<p class='songinfo'>Mohamed Bouazizi - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+
+<!-- <h3>Songs I put actual effort into:</h3>
+
+<button onclick = "play('audio4')">Play</button>
+<button onclick = "pause('audio4')">Pause</button>
+<button onclick = "stop('audio4')">Stop</button>
+<audio src="Songs/Let It Sleep.WAV" id="audio4" class="audio"></audio>
+<p class='songinfo'>Let It Sleep (Instrumental) - <a href="rendevous.html">Rendevous</a></p>
+
+<button onclick = "play('audio5')">Play</button>
+<button onclick = "pause('audio5')">Pause</button>
+<button onclick = "stop('audio5')">Stop</button>
+<audio src="Songs/Angels Don't Kill.WAV" id="audio5" class="audio"></audio>
+<p class='songinfo'>Angels Don't Kill (Instrumental) - <a href="childrenofbodom.html">Children of Bodom</a>, cover by <a href="rendevous.html">Rendevous</a></p>
+
+<button onclick = "play('audio6')">Play</button>
+<button onclick = "pause('audio6')">Pause</button>
+<button onclick = "stop('audio6')">Stop</button>
+<audio src="Songs/Diamond Head.WAV" id="audio6" class="audio"></audio>
+<p class='songinfo'>Diamond Head (Instrumental) - The Ventures, cover by <a href="rendevous.html">Rendevous</a></p>
+
+<button onclick = "play('audio7')">Play</button>
+<button onclick = "pause('audio7')">Pause</button>
+<button onclick = "stop('audio7')">Stop</button>
+<audio src="Songs/Selkies The Endless Obsession Solo.WAV" id="audio7" class="audio"></audio>
+<p class='songinfo'>Selkies The Endless Obsession (Jazz Guitar Solo Only) - Between the Buried and Me, cover by <a href="rendevous.html">Rendevous</a></p> -->
+
+            <h1 id="uid" style="color: white;"></h1>
+            
+            <!-- HERE IS YOUR HTML CODE TO SET TEXT -->
+            <h3>Liked something (probably not)? Hated something (more likely)? Leave a comment expressing your flaming hatred for something I actually spent time on for some reason.</h3>
+
+            <button onclick = "signin()" >Sign In</button>
+           
+            <input type="text" id="commentID" placeholder="Enter comment" name="comment">
+            
+            <button onclick = "sendComment()">Submit Comment</button>
+            <button onclick = "getComment()">Retrieve Comments</button>
+
+            <p>Current Comments in the Database:</p>
+
+            <!-- ol means ordered list -->
+            <p><ol id="commentList"></ol></p>    
+                 
+    </body>
+
+    <script>
+
+    	async function play(id) {
+
+    		const audios = document.getElementsByClassName("audio");
+    		for(const audio of audios) {
+    			await audio.pause();
+    		}
+
+    		const video = document.getElementById(id);
+    		const isPlaying = video.currentTime > 0 && !video.paused && !video.ended 
+			    && video.readyState > 2;
+
+    		console.log(video, video.paused, isPlaying);
+
+			if (!isPlaying) {
+				console.log("poop");
+			  video.play();
+			}
+
+    		// const audioFile = document.getElementById(id);
+    		// await audioFile.play();
+    	}
+
+    	async function pause(id) {
+    		const audioFile = document.getElementById(id);
+    		await audioFile.pause();
+    	}
+
+    	async function stop(id) {
+    		const audioFile = document.getElementById(id);
+    		await audioFile.pause();
+    		audioFile.currentTime = 0;
+    	}
+
+      var provider = new firebase.auth.GoogleAuthProvider();
+      var userId = document.getElementById("uid").innerHTML;
+
+      var config = {
+
+        ///// COPY AND PASTE YOUR FIREBASE CONFIGURATION DATA HERE /////
+
+        apiKey: "AIzaSyCRLT-wBh6WvQzQp-g6Bi52oAZgtUcm0_g",
+        authDomain: "y10firebaseproject-frende.firebaseapp.com",
+        databaseURL: "https://y10firebaseproject-frende.firebaseio.com",
+        projectId: "y10firebaseproject-frende",
+        storageBucket: "y10firebaseproject-frende.appspot.com",
+        messagingSenderId: "660854506405",
+        appId: "1:660854506405:web:f91f74704aaaf20d42de4c",
+        measurementId: "G-LXCGXC6Y4Z"
+      }
+
+
+      firebase.initializeApp(config);
+      //firebase.analytics();
+
+      // Authentication Check: to see if you are logged in
+      firebase.auth().onAuthStateChanged(function(user) {
+          if (user == null) {
+              document.getElementById("uid").innerHTML = "not logged in";
+              return;
+          } else {
+              userId = user.uid; // you can also get .displayName, .photoURL, .email
+              document.getElementById("uid").innerHTML = userId; // display Google uid on page
+                
+          } // end user null check
+      }); // end check auth state
+
+
+      // Functions that will be used to "get" and "set" data, among other "helper"
+      // functions too...
+
+      function signin() {
+          var provider = new firebase.auth.GoogleAuthProvider();
+          firebase.auth().signInWithRedirect(provider).then(function(result) {
+          window.location.replace("fbtest.html");
+        });
+      } // end signin
+
+      function sendComment() {
+
+          // Create a database object that we can refer to
+          var database = firebase.database();
+
+          // Create a reference to a particular location or "node" called commentRepo
+          var ref = database.ref('commentRepo');
+
+          // Grab the Name, Subject, and Grade obtained from the HTML frontend textboxes
+          var myComment = document.getElementById("commentID").value;
+           
+          // Create a JSON object to add to the database with user-inputted data
+          var data = {
+          
+             commentFIELD: myComment
+
+          }//end data
+
+          // "PUSH" means we add something to the database
+          ref.push(data);
+      } // end sendComment
+
+      function getComment() {
+
+          // Create a database object that we can refer to
+          var database = firebase.database();
+
+          // Create a reference to a particular location or "node"
+          // 'StudentInfo'is the name of the main branch in the database
+          var ref = database.ref('commentRepo');
+
+          // we will make reference to each 'value' of a database object which will have
+          // two helper functions latched "on" to it to perform additional tasks
+          // - either we have access to data values, or we don't and there is an error
+
+          ref.on('value', gotData, errData)
+          // jump to the helper function...think of 'value' as the parameter that is passed
+
+      } // end getdata
+
+      function gotData(comments){
+
+          // clear items from previously created lists
+          document.getElementById('commentList').innerHTML = "";
+           
+          // collect all of the unique objects ('keys' or id's) out of the database
+          var commentData = comments.val(); // access the data 'value' of each student 'object'
+          var keys = Object.keys(commentData);
+          console.log(keys); //this works
+
+          // iterate through the unique object id's and grab data fields
+          for (var i = 0; i < keys.length; i++){
+            var k = keys[i];
+            var commentNODE = commentData[k].commentFIELD;
+            console.log (keys[i]);
+            console.log (commentNODE); //keeps coming up undefined!!!
+
+            // DISPLAY COMMENTS
+            // Create a reference to the ordered list called 'commentList'
+            // called 'oListStudent'
+            var oListComment = document.getElementById('commentList');
+            var entry = document.createElement('li'); // a list element to be added to the ordered list
+            entry.appendChild(document.createTextNode(commentNODE));
+            oListComment.appendChild(entry);
+             
+            // AJ: we only need to send information to the console window when we are debugging our code of errors
+            
+
+          }
+      }
+
+      function errData(err){
+        console.log('Error!')
+        console.log(err)
+      }
+
+  </script>
+    
+</html>
