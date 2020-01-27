@@ -16,8 +16,13 @@
 
 <body>
 
+<div class="topnav">
+	<a href="index.html">Home</a>
+	<a href="listofbands.html">List of Bands</a>
+</div>
+
 <div class="title">
-	<h2>Melodic Death Metal: 180 - 200BPM</h2>
+	<h2 style="margin-top: 20px;">Melodic Death Metal: 180 - 200BPM</h2>
 	<h3>Click the play buttons to open up the song.</h3>
 </div>
 
@@ -28,16 +33,16 @@
 	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
 </div>
 
-<p id="someoneIsSearchingSomething"></p>
-
 <div class='music' style="display: block; visibility: visible;">
 	<button class='playbutton' onclick="hateMe()"></button>
-	<p class='songinfo'>Hate Me - Children of Bodom (Follow the Reaper, 2000)</p>
+	<p class='songinfo'>Hate Me - <a href="childrenofbodom.html">Children of Bodom</a> (Follow the Reaper, 2000)</p>
 </div>
+
+
 
 <div class='music' style="display: block; visibility: visible;">
 	<button class='playbutton' onclick="underGrassAndClover()"></button>
-	<p class='songinfo'>Under Grass and Clover - Children of Bodom (Hexed, 2019)</p>
+	<p class='songinfo'>Under Grass and Clover - <a href="childrenofbodom.html">Children of Bodom</a> (Hexed, 2019)</p>
 </div>
 
 <!-- <div class='music' style="display: block; visibility: visible;">
@@ -65,47 +70,37 @@
 
 	function search() {
 
-		// a placeholder function until i can get the searching to work properly
-		// var paragraph = document.getElementById("someoneIsSearchingSomething");
-		// var text = document.createTextNode("Ruh roh! It looks like you're trying to search something. That doesn't work (currently). Stop it.");
-		// paragraph.appendChild(text);
+		const inputTitle = document.getElementById("songInput").value;
 
+		// console.log(inputTitle);
 
-		var inputTitle = document.getElementById("songInput").value;
+		const lengthVariable = inputTitle.length;
 
-		console.log(inputTitle);
-
-		var lengthVariable = inputTitle.length;
-
-		console.log(lengthVariable);
+		// console.log(lengthVariable);
 
 
 		var myMusic = document.getElementsByClassName('music');
 
-		var songTitle = document.getElementsByClassName('songinfo')[i]
-		
-		console.log(songTitle);
-
 		var i;
 		for (i = 0; i < myMusic.length; i++) {
 
-			var displaySetting = myMusic[i].style.display;
+			const songs = document.getElementsByClassName('songinfo');
+			var songTitle = document.getElementsByClassName('songinfo')[i].innerHTML;
 
-			// this piece of code checks to make sure that the inputted test is the same as the title of a song
-			if (inputTitle != songTitle[0..lengthVariable]) {
-				// if a song doesn't match, it is removed from the webpage
-				console.log("bad search");
-				document.getElementsByClassName('music')[i].style.display = 'none';
-				myMusic[i].style.display = 'none';
+			// console.log(songTitle);
+
+			for(const song of songs) {
+				// console.log(song.innerHTML, songTitle);
+				if(song.innerHTML.includes(inputTitle)) {
+					// console.log("hi");
+					console.log(songTitle);
+					console.log(song);
+					song.style.display = 'block';
+				} else {
+					// console.log("no");
+					song.style.display = 'none';
+				}
 			}
-
-			else {
-				// if a song does match it, it is displayed
-				console.log("good search");
-				console.log('hello');
-				document.getElementsByClassName('music')[i].style.display = 'block';
-			}
-
 
 			// this code was used to test out the ability to change the display settings on a small scale
 			// if (displaySetting == 'block') {

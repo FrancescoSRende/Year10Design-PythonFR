@@ -3,6 +3,52 @@
 	background-color: #111;
 }
 
+.topnav a {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnav a:hover {
+	background-color: #ff8c8c;
+	color: black;
+}
+
+.topnav a.active {
+	background-color: #ff0000;
+	color: white;
+}
+
+.sidenav {
+	height: 100%;
+	width: 300px;
+	position: absolute;
+	z-index: 1;
+	top: 300;
+	left: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	padding-top: 10px;
+	margin-left: 8px;
+	margin-top: -150px;
+}
+
+.sidenav a {
+	font-family: 'Merriweather', serif;
+	padding: 0px 8px 10px 16px;
+	text-decoration: none;
+	font-size: 21px;
+	color: #818181;
+	display: block;
+}
+
+.sidenav a:hover {
+	color: #f1f1f1;
+}
+
 .playbutton {
 	width: 20px;
 	height: 20px;
@@ -35,6 +81,13 @@
 }
 
 .title {
+	font-family: 'Crimson Text', serif;
+	font-size: 24px;
+	text-align: center;
+	margin-top: -10px;
+}
+
+.subtitle {
 	font-family: 'Crimson Text', serif;
 	font-size: 24px;
 	text-align: center;

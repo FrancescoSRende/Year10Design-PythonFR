@@ -10,8 +10,13 @@
 
 <body>
 
+<div class="topnav">
+	<a href="index.html">Home</a>
+	<a href="listofbands.html">List of Bands</a>
+</div>
+
 <div class="title">
-	<h2>Thrash Metal: 180 - 200BPM</h2>
+	<h2 style="margin-top: 20px;">Thrash Metal: 180 - 200BPM</h2>
 	<h3>Click the play buttons to open up the song.</h3>
 </div>
 
@@ -21,21 +26,27 @@
 	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
 </div>
 
-<button class='playbutton' onclick="lucretia()"></button>
-<p class='songinfo'>Lucretia - <a href="megadeth.html">Megadeth</a> (Rust In Peace, 1990)</p>
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="lucretia()"></button>
+	<p class='songinfo'>Lucretia - <a href="megadeth.html">Megadeth</a> (Rust In Peace, 1990)</p>
+</div>
 
-<button class='playbutton' onclick="tornadoOfSouls()"></button>
-<p class='songinfo'>Tornado of Souls - <a href="megadeth.html">Megadeth</a> (Rust In Peace, 1990)</p>
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="tornadoOfSouls()"></button>
+	<p class='songinfo'>Tornado of Souls - <a href="megadeth.html">Megadeth</a> (Rust In Peace, 1990)</p>
+</div>
 
+<div class='music' style="display: block; visibility: visible;">
 	<!-- introduces a play button -->
-<button class='playbutton' onclick="battery()"></button>
-<p class='songinfo'>Battery - <a href="metallica.html">Metallica</a> (Master of Puppets, 1986)</p>
+	<button class='playbutton' onclick="battery()"></button>
+	<p class='songinfo'>Battery - <a href="metallica.html">Metallica</a> (Master of Puppets, 1986)</p>
+</div>
 
-<!-- <a href="#" onclick="play()">Play YouTube Video</a> -->
-
-<button class='playbutton' onclick="disposableHeroes()"></button>
-<p class='songinfo'>Disposable Heroes - <a href="metallica.html">Metallica</a> (Master of Puppets, 1986)</p>
-
+<div class='music' style="display: block; visibility: visible;">
+	<!-- <a href="#" onclick="play()">Play YouTube Video</a> -->
+	<button class='playbutton' onclick="disposableHeroes()"></button>
+	<p class='songinfo'>Disposable Heroes - <a href="metallica.html">Metallica</a> (Master of Puppets, 1986)</p>
+</div>
 
 </body>
 
@@ -58,30 +69,42 @@
 		window.open("https://www.youtube.com/watch?v=6rNELTZO0QQ");
 	}
 
+	function search() {
+
+		const inputTitle = document.getElementById("songInput").value;
+
+		// console.log(inputTitle);
+
+		const lengthVariable = inputTitle.length;
+
+		// console.log(lengthVariable);
 
 
+		var myMusic = document.getElementsByClassName('music');
 
+		var i;
+		for (i = 0; i < myMusic.length; i++) {
 
+			const songs = document.getElementsByClassName('songinfo');
+			var songTitle = document.getElementsByClassName('songinfo')[i].innerHTML;
 
-	// this code is used to play a song when clicked
-	// for some reason it doesnt work
-	// so i'm just pushing it to the side, in case I might need it later
+			// console.log(songTitle);
 
+			for(const song of songs) {
+				// console.log(song.innerHTML, songTitle);
+				if(song.innerHTML.includes(inputTitle)) {
+					// console.log("hi");
+					console.log(songTitle);
+					console.log(song);
+					song.style.display = 'block';
+				} else {
+					// console.log("no");
+					song.style.display = 'none';
+				}
+			}
+		}
 
-	// var element = getElementById("battery");
-		// element.addEventListener("click", function(){
-		// window.open("https://www.youtube.com/watch?v=17E-zFb-0aE");
-	// });
-
-
-
-	// other code that doesn't work
-	
-	//function play() {
-		//if(player) {
-			//player.playVideo();
-		//}
-	//}
+	}
 
 </script>
 

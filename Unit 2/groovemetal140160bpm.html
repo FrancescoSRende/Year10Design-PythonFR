@@ -10,8 +10,13 @@
 
 <body>
 
+<div class="topnav">
+	<a href="index.html">Home</a>
+	<a href="listofbands.html">List of Bands</a>
+</div>
+
 <div class="title">
-	<h2>Groove Metal: 140 - 160BPM</h2>
+	<h2 style="margin-top: 20px;">Groove Metal: 140 - 160BPM</h2>
 	<h3>Click the play buttons to open up the song.</h3>
 </div>
 
@@ -21,11 +26,15 @@
 	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
 </div>
 
-<button class='playbutton' onclick="domination()"></button>
-<p class='songinfo'>Domination - <a href="pantera.html">Pantera</a> (Cowboys From Hell, 1990)</p>
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="domination()"></button>
+	<p class='songinfo'>Domination - <a href="pantera.html">Pantera</a> (Cowboys From Hell, 1990)</p>
+</div>
 
-<button class='playbutton' onclick="imBroken()"></button>
-<p class='songinfo'>I'm Broken - <a href="pantera.html">Pantera</a> (Far Beyond Driven, 1994)</p>
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="imBroken()"></button>
+	<p class='songinfo'>I'm Broken - <a href="pantera.html">Pantera</a> (Far Beyond Driven, 1994)</p>
+</div>
 
 </body>
 
@@ -38,6 +47,43 @@
 
 	function imBroken() {
 		window.open("https://www.youtube.com/watch?v=DBOfabotqP8");
+	}
+
+	function search() {
+
+		const inputTitle = document.getElementById("songInput").value;
+
+		// console.log(inputTitle);
+
+		const lengthVariable = inputTitle.length;
+
+		// console.log(lengthVariable);
+
+
+		var myMusic = document.getElementsByClassName('music');
+
+		var i;
+		for (i = 0; i < myMusic.length; i++) {
+
+			const songs = document.getElementsByClassName('songinfo');
+			var songTitle = document.getElementsByClassName('songinfo')[i].innerHTML;
+
+			// console.log(songTitle);
+
+			for(const song of songs) {
+				// console.log(song.innerHTML, songTitle);
+				if(song.innerHTML.includes(inputTitle)) {
+					// console.log("hi");
+					console.log(songTitle);
+					console.log(song);
+					song.style.display = 'block';
+				} else {
+					// console.log("no");
+					song.style.display = 'none';
+				}
+			}
+		}
+
 	}
 
 </script>
