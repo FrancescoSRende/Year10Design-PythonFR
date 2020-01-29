@@ -1,0 +1,91 @@
+
+<html>
+
+<head>
+	<title>Progressive Metal: 180 - 200 BPM</title>
+	<!-- my style (css) file to set the different classes and ids for the website -->
+	<link rel="stylesheet" href="indexStyle.css">
+</head>
+
+
+<body>
+
+<div class="topnav">
+	<a href="index.html">Home</a>
+	<a href="listofbands.html">List of Bands</a>
+</div>
+
+<div class="title">
+	<h2 style="margin-top: 20px;">Progressive Metal: 180 - 200 BPM</h2>
+	<h3>Click the play buttons to open up the song.</h3>
+</div>
+
+<!-- this code creates a search bar that is linked to a function below -->
+<div class="searchBar">
+	<input id="songInput" type="text" placeholder="Search.." name="search">
+	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="flyingwhales()"></button>
+	<p class='songinfo'>Flying Whales - <a href="gojira.html">Gojira</a> (From Mars to Sirius, 2005)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="hsong()"></button>
+	<p class='songinfo'>H. - <a href="tool.html">Tool</a> (Ænima, 1996)</p>
+</div>
+
+</body>
+
+
+<script>
+
+	function flyingwhales() {
+		window.open("https://www.youtube.com/watch?v=QuVcrrrgwiY");
+	}
+
+	function hsong() {
+		window.open("https://www.youtube.com/watch?v=bg8vTSyHFkQ");
+	}
+
+	function search() {
+
+		const inputTitle = document.getElementById("songInput").value;
+
+		// console.log(inputTitle);
+
+		const lengthVariable = inputTitle.length;
+
+		// console.log(lengthVariable);
+
+
+		var myMusic = document.getElementsByClassName('music');
+
+		var i;
+		for (i = 0; i < myMusic.length; i++) {
+
+			const songs = document.getElementsByClassName('songinfo');
+			var songTitle = document.getElementsByClassName('songinfo')[i].innerHTML;
+
+			// console.log(songTitle);
+
+			for(const song of songs) {
+				// console.log(song.innerHTML, songTitle);
+				if(song.innerHTML.includes(inputTitle)) {
+					// console.log("hi");
+					console.log(songTitle);
+					console.log(song);
+					song.style.display = 'block';
+				} else {
+					// console.log("no");
+					song.style.display = 'none';
+				}
+			}
+		}
+
+	}
+
+</script>
+
+</html>
