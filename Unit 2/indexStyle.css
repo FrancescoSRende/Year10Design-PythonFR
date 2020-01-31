@@ -24,7 +24,7 @@
 
 .sidenav {
 	height: 100%;
-	width: 300px;
+	width: 350px;
 	position: absolute;
 	z-index: 1;
 	top: 300;
@@ -46,6 +46,33 @@
 }
 
 .sidenav a:hover {
+	color: #f1f1f1;
+}
+
+.sidenav2 {
+	height: 100%;
+	width: 350px;
+	position: absolute;
+	z-index: 1;
+	top: 300;
+	left: 370;
+	background-color: #111;
+	overflow-x: hidden;
+	padding-top: 10px;
+	margin-left: 8px;
+	margin-top: -150px;
+}
+
+.sidenav2 a {
+	font-family: 'Merriweather', serif;
+	padding: 0px 8px 10px 16px;
+	text-decoration: none;
+	font-size: 21px;
+	color: #818181;
+	display: block;
+}
+
+.sidenav2 a:hover {
 	color: #f1f1f1;
 }
 
