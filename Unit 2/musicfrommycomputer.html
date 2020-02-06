@@ -18,6 +18,8 @@
  
     </head>
 
+<!-- this website is for all the music i have on my computer (ie. all of the songs i have recorded). because the website plays the music from my computer, only i will be able to use this page -->
+
 <body>
 
 <div class="topnav">
@@ -33,11 +35,15 @@
 
 <h3>Songs I wrote ironically:</h3>
 
+<!-- these are all linked to various functions, 'play', 'pause' and 'stop', and are all given a class 'audio__' so that the functions can cycle through the 'audio' class and affect each song one by one, rather than having a 'play1' function for the first song, a 'play2' function for the second song, and so on -->
+
 <button onclick = "play('audio1')">Play</button>
 <button onclick = "pause('audio1')">Pause</button>
 <button onclick = "stop('audio1')">Stop</button>
 <audio src="Songs/Mme. Loisel.WAV" id="audio1" class="audio"></audio>
 <p class='songinfo'>Mme. Loisel - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+
+<!-- this one was written half-ironically -->
 
 <button onclick = "play('audio2')">Play</button>
 <button onclick = "pause('audio2')">Pause</button>
@@ -67,7 +73,9 @@
 <button onclick = "pause('audio6')">Pause</button>
 <button onclick = "stop('audio6')">Stop</button>
 <audio src="Songs/Pika Pika.WAV" id="audio6" class="audio"></audio>
-<p class='songinfo'>Pika Pika - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+<p class='songinfo'>Pika Pika - <a href="rendevous.html">Rendevous</a> (Pika Pika - A Spiritual Awakening, 2020)</p>
+
+<!-- this one was also written half-ironically -->
 
 <button onclick = "play('audio7')">Play</button>
 <button onclick = "pause('audio7')">Pause</button>
@@ -76,6 +84,8 @@
 <p class='songinfo'>Ce N'est Pas Cafe Gauthier - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
 
 <h3>Songs I put actual effort into:</h3>
+
+<!-- i'm actually fairly proud of both of these songs -->
 
 <button onclick = "play('audio8')">Play</button>
 <button onclick = "pause('audio8')">Pause</button>
@@ -94,6 +104,8 @@
             <!-- HERE IS YOUR HTML CODE TO SET TEXT -->
             <h3>Liked something (probably not)? Hated something (more likely)? Leave a comment expressing your flaming hatred for something I actually spent time on for some reason.</h3>
 
+            <!-- here's the link to the firebase: user's can leave their comments expressing their furious expressions of disgust towards my music (via 'sendComment'). these comments can be retrieved (via 'getComment') and displayed on the website (in a numbered list) -->
+
             <button onclick = "signin()" >Sign In</button>
            
             <input type="text" id="commentID" placeholder="Enter comment" name="comment">
@@ -109,6 +121,10 @@
     </body>
 
     <script>
+
+      // functions to play, pause and stop audio
+
+      // the play function is designed to pause any other song that is playing so that only one song can be played at once. the stop function not only stops the song, if said song is played again, it will begin playing from the beginning, whereas the pause function merely pauses the song and keeps the position
 
     	function play(id) {
     		const audios = document.getElementsByClassName("audio");

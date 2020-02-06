@@ -12,15 +12,21 @@
 	font-size: 17px;
 }
 
+/*this changes the colour for the buttons in the topnav when the mouse hovers on them*/
+
 .topnav a:hover {
 	background-color: #ff8c8c;
 	color: black;
 }
 
+/*this changes the colour for the buttons in the topnav when they are active*/
+
 .topnav a.active {
 	background-color: #ff0000;
 	color: white;
 }
+
+/*this is the style for the first sidenav*/
 
 .sidenav {
 	height: 100%;
@@ -45,9 +51,13 @@
 	display: block;
 }
 
+/*this changes the colour for the playlists in the sidenav when the mouse hovers on them*/
+
 .sidenav a:hover {
 	color: #f1f1f1;
 }
+
+/*this is the style for the first sidenav, identical to the first except moved over to have a nicely spaced out website*/
 
 .sidenav2 {
 	height: 100%;

@@ -2,9 +2,15 @@
 <html>
 
 <head>
-	<title>Metal: 140 - 160 BPM</title>
+	<title>Metalcore: 160 - 180BPM</title>
 	<!-- my style (css) file to set the different classes and ids for the website -->
 	<link rel="stylesheet" href="indexStyle.css">
+
+	<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 
@@ -16,9 +22,10 @@
 </div>
 
 <div class="title">
-	<h2 style="margin-top: 20px;">Metal: 140 - 160 BPM</h2>
+	<h2 style="margin-top: 20px;">Metalcore: 160 - 180BPM</h2>
 	<h3>Click the play buttons to open up the song.</h3>
 </div>
+
 
 <!-- this code creates a search bar that is linked to a function below -->
 <div class="searchBar">
@@ -27,23 +34,13 @@
 </div>
 
 <div class='music' style="display: block; visibility: visible;">
-	<button class='playbutton' onclick="machine()"></button>
-	<p class='songinfo'>Machine - Born of Osiris (Tomorrow We Die Alive, 2013)</p>
+	<button class='playbutton' onclick="inDueTime()"></button>
+	<p class='songinfo'>In Due Time - <a href="killswitchengage.html">Killswitch Engage</a> (Disarm the Descent, 2013)</p>
 </div>
 
 <div class='music' style="display: block; visibility: visible;">
-	<button class='playbutton' onclick="kissingTheShadows()"></button>
-	<p class='songinfo'>Kissing the Shadows - <a href="childrenofbodom.html">Children of Bodom</a> (Follow the Reaper, 2000)</p>
-</div>
-
-<div class='music' style="display: block; visibility: visible;">
-	<button class='playbutton' onclick="lovedToDeth()"></button>
-	<p class='songinfo'>Last Rites/Loved to Deth - <a href="megadeth.html">Megadeth</a> (Killing Is My Business... And Business Is Good, 1985)</p>
-</div>
-
-<div class='music' style="display: block; visibility: visible;">
-	<button class='playbutton' onclick="domination()"></button>
-	<p class='songinfo'>Domination - <a href="pantera.html">Pantera</a> (Cowboys From Hell, 1990)</p>
+	<button class='playbutton' onclick="myCurse()"></button>
+	<p class='songinfo'>My Curse - <a href="killswitchengage.html">Killswitch Engage</a> (Daylight Dies, 2006)</p>
 </div>
 
 </body>
@@ -51,20 +48,12 @@
 
 <script>
 
-	function machine() {
-		window.open("https://www.youtube.com/watch?v=Y4OJzu97kEw");
+	function inDueTime() {
+		window.open("https://www.youtube.com/watch?v=gglwP9BDdOk");
 	}
 
-	function kissingTheShadows() {
-		window.open("https://www.youtube.com/watch?v=AW_wgKGoEmI");
-	}
-
-	function lovedToDeth() {
-		window.open("https://www.youtube.com/watch?v=vzs5wUXHCPs");
-	}
-
-	function domination() {
-		window.open("https://www.youtube.com/watch?v=nTJHkUze9lc");
+	function myCurse() {
+		window.open("https://www.youtube.com/watch?v=B4vTwppAfDg");
 	}
 
 	function search() {
@@ -100,10 +89,28 @@
 					song.style.display = 'none';
 				}
 			}
+
+			// this code was used to test out the ability to change the display settings on a small scale
+			// if (displaySetting == 'block') {
+			// 	// clock is visible. hide it
+			// 	console.log(displaySetting)
+			// 	document.getElementsByClassName('music')[i].style.display = 'none';
+			// 	myMusic[i].style.display = 'none';
+			// }
+			// else {
+			// 	// clock is hidden. show it
+			// 	console.log(displaySetting)
+			// 	console.log('hello')
+			// 	document.getElementsByClassName('music')[i].style.display = 'block';
+			// 	myMusic[i].style.display = 'block';
+			// }
 		}
 
 	}
 
 </script>
+
+
+
 
 </html>

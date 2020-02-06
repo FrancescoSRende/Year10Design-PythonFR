@@ -1,0 +1,134 @@
+
+<html>
+
+<head>
+	<title>Deathcore: 100 - 120BPM</title>
+	<!-- my style (css) file to set the different classes and ids for the website -->
+	<link rel="stylesheet" href="indexStyle.css">
+
+	<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+
+<body>
+
+<div class="topnav">
+	<a href="index.html">Home</a>
+	<a href="listofbands.html">List of Bands</a>
+</div>
+
+<div class="title">
+	<h2 style="margin-top: 20px;">Deathcore: 100 - 120BPM</h2>
+	<h3>Click the play buttons to open up the song.</h3>
+</div>
+
+
+<!-- this code creates a search bar that is linked to a function below -->
+<div class="searchBar">
+	<input id="songInput" type="text" placeholder="Search.." name="search">
+	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="berzerker()"></button>
+	<p class='songinfo'>Berzerker - After the Burial (Rareform, 2009)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="disengage()"></button>
+	<p class='songinfo'>Disengage - <a href="suicidesilence.html">Suicide Silence</a> (No Time To Bleed, 2009)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="noPityForACoward()"></button>
+	<p class='songinfo'>No Pity For A Coward - <a href="suicidesilence.html">Suicide Silence</a> (The Black Crown, 2011)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="youOnlyLiveOnce()"></button>
+	<p class='songinfo'>You Only Live Once - <a href="suicidesilence.html">Suicide Silence</a> (The Black Crown, 2011)</p>
+</div>
+
+</body>
+
+
+<script>
+
+	function berzerker() {
+		window.open("https://www.youtube.com/watch?v=Izp4OOGfwe0");
+	}
+
+	function disengage() {
+		window.open("https://www.youtube.com/watch?v=gE3iPHTlsSQ");
+	}
+
+	function noPityForACoward() {
+		window.open("https://www.youtube.com/watch?v=3TIJaheK7N0");
+	}
+
+	function youOnlyLiveOnce() {
+		window.open("https://www.youtube.com/watch?v=8bTbGHrHJ90");
+	}
+
+	function search() {
+
+		const inputTitle = document.getElementById("songInput").value;
+
+		// console.log(inputTitle);
+
+		const lengthVariable = inputTitle.length;
+
+		// console.log(lengthVariable);
+
+
+		var myMusic = document.getElementsByClassName('music');
+
+		var i;
+		for (i = 0; i < myMusic.length; i++) {
+
+			const songs = document.getElementsByClassName('songinfo');
+			var songTitle = document.getElementsByClassName('songinfo')[i].innerHTML;
+
+			// console.log(songTitle);
+
+			for(const song of songs) {
+				// console.log(song.innerHTML, songTitle);
+				if(song.innerHTML.includes(inputTitle)) {
+					// console.log("hi");
+					console.log(songTitle);
+					console.log(song);
+					song.style.display = 'block';
+				} else {
+					// console.log("no");
+					song.style.display = 'none';
+				}
+			}
+
+			// this code was used to test out the ability to change the display settings on a small scale
+			// if (displaySetting == 'block') {
+			// 	// clock is visible. hide it
+			// 	console.log(displaySetting)
+			// 	document.getElementsByClassName('music')[i].style.display = 'none';
+			// 	myMusic[i].style.display = 'none';
+			// }
+			// else {
+			// 	// clock is hidden. show it
+			// 	console.log(displaySetting)
+			// 	console.log('hello')
+			// 	document.getElementsByClassName('music')[i].style.display = 'block';
+			// 	myMusic[i].style.display = 'block';
+			// }
+		}
+
+	}
+
+</script>
+
+
+
+
+</html>

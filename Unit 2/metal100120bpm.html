@@ -26,6 +26,8 @@
 	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
 </div>
 
+<!-- various divs for each songs, all organized alphabetically, each linked to a function that opens up the song in youtube -->
+
 <div class='music' style="display: block; visibility: visible;">
 	<button class='playbutton' onclick="hades()"></button>
 	<p class='songinfo'>Hades - <a href="bathory.html">Bathory</a> (Hades, 1984)</p>
@@ -81,6 +83,8 @@
 
 <script>
 
+	// the functions to open up songs in youtube
+
 	function blowYourTrumpetsGabriel() {
 		window.open("https://www.youtube.com/watch?v=0RK9jLlYvvo");
 	}
@@ -121,16 +125,21 @@
 		window.open("https://www.youtube.com/watch?v=civuoU_NE38");
 	}
 
+	// this function is used to let users search for specific songs
+
 	function search() {
 
-		const inputTitle = document.getElementById("songInput").value;
+		// this takes the text the user typed into the search bar
 
+		const inputTitle = document.getElementById("songInput").value;
 		// console.log(inputTitle);
 
-		const lengthVariable = inputTitle.length;
+		// this takes the length of said text
 
+		const lengthVariable = inputTitle.length;
 		// console.log(lengthVariable);
 
+		// taking all of the elements in the class 'music' (these are the divs with the songs in them)
 
 		var myMusic = document.getElementsByClassName('music');
 
@@ -139,8 +148,9 @@
 
 			const songs = document.getElementsByClassName('songinfo');
 			var songTitle = document.getElementsByClassName('songinfo')[i].innerHTML;
-
 			// console.log(songTitle);
+
+			// this piece of code goes through the title of each song (including the song, album and artist name and the year) and compares them to the text the user searched for. if the piece of text matches a part of the title (for example, if the user searches 'aste', 'master of puppets' will show up), then the song div will remain on the screen (song.style.display = 'block';). otherwise, it will be removed (song.style.display = 'none';)
 
 			for(const song of songs) {
 				// console.log(song.innerHTML, songTitle);
