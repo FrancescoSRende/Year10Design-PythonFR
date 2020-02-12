@@ -24,6 +24,7 @@
 
 <div class="topnav">
   <a href="index.html">Home</a>
+  <a href="reviews.html">Reviews</a>
   <a href="listofbands.html">List of Bands</a>
 </div>
 
@@ -31,85 +32,142 @@
 	<h1 style="margin-top: 20px;">Music From My Computer</h1>
 </div>
 
-<h2>Click the play buttons to open up the song.</h2>
+<h1 style="text-align: center;"><a href="https://www.songsterr.com/a/wsa/rendevous-tabs-a62369">Guitar Tabs</a></h1>
 
 <h3>Songs I wrote ironically:</h3>
 
 <!-- these are all linked to various functions, 'play', 'pause' and 'stop', and are all given a class 'audio__' so that the functions can cycle through the 'audio' class and affect each song one by one, rather than having a 'play1' function for the first song, a 'play2' function for the second song, and so on -->
 
-<button onclick = "play('audio1')">Play</button>
-<button onclick = "pause('audio1')">Pause</button>
-<button onclick = "stop('audio1')">Stop</button>
-<audio src="Songs/Mme. Loisel.WAV" id="audio1" class="audio"></audio>
-<p class='songinfo'>Mme. Loisel - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
-
-<!-- this one was written half-ironically -->
-
-<button onclick = "play('audio2')">Play</button>
-<button onclick = "pause('audio2')">Pause</button>
-<button onclick = "stop('audio2')">Stop</button>
-<audio src="Songs/Thierry Est Mort.WAV" id="audio2" class="audio"></audio>
-<p class='songinfo'>Thierry Est Mort - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
-
-<button onclick = "play('audio3')">Play</button>
+<!-- <button onclick = "play('audio3')">Play</button>
 <button onclick = "pause('audio3')">Pause</button>
 <button onclick = "stop('audio3')">Stop</button>
-<audio src="Songs/But first, a word from today's sponsor, Raid Shadow Legends.WAV" id="audio3" class="audio"></audio>
-<p class='songinfo'>But first, a word from today's sponsor, Raid Shadow Legends - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+<audio src="Songs/But first, a word from today's sponsor, Raid Shadow Legends.WAV" id="audio3" class="audio"></audio> -->
 
-<button onclick = "play('audio4')">Play</button>
-<button onclick = "pause('audio4')">Pause</button>
-<button onclick = "stop('audio4')">Stop</button>
-<audio src="Songs/Mr. Jourdain.WAV" id="audio4" class="audio"></audio>
-<p class='songinfo'>Mr. Jourdain - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
 
-<button onclick = "play('audio5')">Play</button>
-<button onclick = "pause('audio5')">Pause</button>
-<button onclick = "stop('audio5')">Stop</button>
-<audio src="Songs/Mohamed Bouazizi.WAV" id="audio5" class="audio"></audio>
-<p class='songinfo'>Mohamed Bouazizi - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+
+<!-- however, then i found a way to play music via google drive, so that everyone can play the song -->
+
+<p class='mysonginfo'>Mme. Loisel - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/1nIbx1U7oiK6H4yOAPKvVUsZ09AEXqCWO/preview?usp=sharing">
+</iframe>
+<!-- this code links the song via drive, where i changed the sharing setting to 'anyone with this link can view' -->
+
+<!-- this one was written half-ironically -->
+<p class='mysonginfo'>Thierry Est Mort - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/1AEh0LvB2xecJOJy6ygd1bBilxaWy21-J/preview?usp=sharing">
+</iframe>
+
+
+<p class='mysonginfo'>But first, a word from today's sponsor, Raid Shadow Legends - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/14Fv9INK0qCncpv5DyepsPFUWgrl-Nmge/preview?usp=sharing">
+</iframe>
+
+
+<p class='mysonginfo'>Mr. Jourdain - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/1rdsKRlr6bEa5uZ4Dr_XycKWgyN3XK3c7/preview?usp=sharing">
+</iframe>
+
+
+
+<p class='mysonginfo'>Mohamed Bouazizi - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/1-A8FBiZkGLYWlnGI55pg2OMKv4xBQ-Lu/preview?usp=sharing">
+</iframe>
+
 
 <!-- this one was also written half-ironically -->
 
-<button onclick = "play('audio7')">Play</button>
-<button onclick = "pause('audio7')">Pause</button>
-<button onclick = "stop('audio7')">Stop</button>
-<audio src="Songs/Ce N'est Pas Cafe Gauthier.WAV" id="audio7" class="audio"></audio>
-<p class='songinfo'>Ce N'est Pas Cafe Gauthier - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
 
-<button onclick = "play('audio6')">Play</button>
-<button onclick = "pause('audio6')">Pause</button>
-<button onclick = "stop('audio6')">Stop</button>
-<audio src="Songs/Pika Pika I - The Gates of Hell.WAV" id="audio6" class="audio"></audio>
-<p class='songinfo'>Pika Pika I - The Gates of Hell - <a href="rendevous.html">Rendevous</a> (Pika Pika - A Spiritual Awakening, 2020)</p>
+<p class='mysonginfo'>Ce N'est Pas Cafe Gauthier - <a href="rendevous.html">Rendevous</a> (Songs to Make Your Friends Like You Less, 2020)</p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/1xh3P_OmoT9n3aMjq7ff8NuYrDksVorL0/preview?usp=sharing">
+</iframe>
 
-<button onclick = "play('audio8')">Play</button>
-<button onclick = "pause('audio8')">Pause</button>
-<button onclick = "stop('audio8')">Stop</button>
-<audio src="Songs/Pika Pika II - Elevated.WAV" id="audio8" class="audio"></audio>
-<p class='songinfo'>Pika Pika II - Elevated - <a href="rendevous.html">Rendevous</a> (Pika Pika - A Spiritual Awakening, 2020)</p>
 
-<button onclick = "play('audio9')">Play</button>
-<button onclick = "pause('audio9')">Pause</button>
-<button onclick = "stop('audio9')">Stop</button>
-<audio src="Songs/Pika Pika III - Negative GDP.WAV" id="audio9" class="audio"></audio>
-<p class='songinfo'>Pika Pika III - Negative GDP - <a href="rendevous.html">Rendevous</a> (Pika Pika - A Spiritual Awakening, 2020)</p>
+
+<p class='mysonginfo'>Pika Pika I - The Gates of Hell - <a href="rendevous.html">Rendevous</a> (Pika Pika - A Spiritual Awakening, 2020)</p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/18-_syM77lxCKd46-E_YUp7QKV-RRvOy3/preview?usp=sharing">
+</iframe>
+
+
+
+<p class='mysonginfo'>Pika Pika II - Elevated - <a href="rendevous.html">Rendevous</a> (Pika Pika - A Spiritual Awakening, 2020)</p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/1NpKtgkk7j7qZLOzz-KEdr2QnKNkqQxps/preview?usp=sharing">
+</iframe>
+
+
+
+<p class='mysonginfo'>Pika Pika III - Negative GDP - <a href="rendevous.html">Rendevous</a> (Pika Pika - A Spiritual Awakening, 2020)</p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/1Y40bZSYWM-VN_45QMMGHEN_ZaDx11Z6O/preview?usp=sharing">
+</iframe>
+
+
+
+<p class='mysonginfo'>Pika Pika IV - Persecution - <a href="rendevous.html">Rendevous</a> (Pika Pika - A Spiritual Awakening, 2020)</p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/178-GacDh802um9_Y-rczM0V5Lu-l6I73/preview?usp=sharing">
+</iframe>
+
 
 <h3>Songs I put actual effort into:</h3>
 
 <!-- i'm actually fairly proud of both of these songs -->
 
-<button onclick = "play('audio8')">Play</button>
-<button onclick = "pause('audio8')">Pause</button>
-<button onclick = "stop('audio8')">Stop</button>
-<audio src="Songs/Let It Sleep.WAV" id="audio8" class="audio"></audio>
-<p class='songinfo'>Let It Sleep (Instrumental) - <a href="rendevous.html">Rendevous</a></p>
+<p class='mysonginfo'>Let It Sleep (Instrumental) - <a href="rendevous.html">Rendevous</a></p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/1AMTzoJ8xHu1soTP4tudF-eJARpVNn1rg/preview?usp=sharing">
+</iframe>
 
-<button onclick = "play('audio9')">Play</button>
-<button onclick = "pause('audio9')">Pause</button>
-<button onclick = "stop('audio9')">Stop</button>
-<audio src="Songs/Angels Don't Kill.WAV" id="audio9" class="audio"></audio>
-<p class='songinfo'>Angels Don't Kill (Instrumental) - <a href="childrenofbodom.html">Children of Bodom</a>, cover by <a href="rendevous.html">Rendevous</a></p>
+
+
+<p class='mysonginfo'>Angels Don't Kill (Instrumental) - <a href="childrenofbodom.html">Children of Bodom</a>, cover by <a href="rendevous.html">Rendevous</a></p>
+<iframe
+   frameborder="0"
+   width="500"
+   height="100"
+   src="https://drive.google.com/file/d/13TDsxCOJ1HaEa8py86OG04HvTw2g5JHq/preview?usp=sharing">
+</iframe>
+
 
             <h1 id="uid" style="color: white;"></h1>
             
@@ -138,25 +196,25 @@
 
       // the play function is designed to pause any other song that is playing so that only one song can be played at once. the stop function not only stops the song, if said song is played again, it will begin playing from the beginning, whereas the pause function merely pauses the song and keeps the position
 
-    	function play(id) {
-    		const audios = document.getElementsByClassName("audio");
-    		for(const audio of audios) {
-    			audio.pause();
-    		}
-    		const audioFile = document.getElementById(id);
-    		audioFile.play();
-    	}
+    	// function play(id) {
+    	// 	const audios = document.getElementsByClassName("audio");
+    	// 	for(const audio of audios) {
+    	// 		audio.pause();
+    	// 	}
+    	// 	const audioFile = document.getElementById(id);
+    	// 	audioFile.play();
+    	// }
 
-    	function pause(id) {
-    		const audioFile = document.getElementById(id);
-    		audioFile.pause();
-    	}
+    	// function pause(id) {
+    	// 	const audioFile = document.getElementById(id);
+    	// 	audioFile.pause();
+    	// }
 
-    	function stop(id) {
-    		const audioFile = document.getElementById(id);
-    		audioFile.pause();
-    		audioFile.currentTime = 0;
-    	}
+    	// function stop(id) {
+    	// 	const audioFile = document.getElementById(id);
+    	// 	audioFile.pause();
+    	// 	audioFile.currentTime = 0;
+    	// }
 
       var provider = new firebase.auth.GoogleAuthProvider();
       var userId = document.getElementById("uid").innerHTML;

@@ -102,6 +102,14 @@
 	margin-left: 100px;
 }
 
+.mysonginfo {
+	padding: -10px 0px 0px 0px;
+	font-family: 'Crimson Text', serif;
+	font-size: 16px;
+	margin-left: 100px;
+	margin-top: 10px;
+}
+
 .search-container button {
 	float: right;
 	padding: 6px 10px;
@@ -128,6 +136,13 @@
 	font-family: 'Crimson Text', serif;
 	font-size: 24px;
 	text-align: center;
+}
+
+.boldtext {
+	font-family: 'Crimson Text', serif;
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 10px;
 }
 
 .searchBar {
