@@ -1,0 +1,139 @@
+
+<html>
+
+<head>
+	<title>Thrash Metal</title>
+	<!-- my style (css) file to set the different classes and ids for the website -->
+	<link rel="stylesheet" href="indexStyle.css">
+</head>
+
+
+<body>
+
+<div class="topnav">
+	<a href="index.html">Home</a>
+	<a href="reviews.html">Reviews</a>
+	<a href="listofbands.html">List of Bands</a>
+</div>
+
+<div class="title">
+	<h2 style="margin-top: 20px;">Thrash Metal</h2>
+	<h3>Click the play buttons to open up the song.</h3>
+</div>
+
+<!-- this code creates a search bar that is linked to a function below -->
+<div class="searchBar">
+	<input id="songInput" type="text" placeholder="Search.." name="search">
+	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="planetB()"></button>
+	<p class='songinfo'>Planet B - King Gizzard & the Lizard Wizard (Infest the Rats' Nest, 2019)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="lucretia()"></button>
+	<p class='songinfo'>Lucretia - <a href="megadeth.html">Megadeth</a> (Rust In Peace, 1990)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="tornadoOfSouls()"></button>
+	<p class='songinfo'>Tornado of Souls - <a href="megadeth.html">Megadeth</a> (Rust In Peace, 1990)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<!-- introduces a play button -->
+	<button class='playbutton' onclick="battery()"></button>
+	<p class='songinfo'>Battery - <a href="metallica.html">Metallica</a> (Master of Puppets, 1986)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<!-- <a href="#" onclick="play()">Play YouTube Video</a> -->
+	<button class='playbutton' onclick="disposableHeroes()"></button>
+	<p class='songinfo'>Disposable Heroes - <a href="metallica.html">Metallica</a> (Master of Puppets, 1986)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="angelOfDeath()"></button>
+	<p class='songinfo'>Angel of Death - Slayer (Reign In Blood, 1986)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="tetrastructuralMinds()"></button>
+	<p class='songinfo'>Tetrastructural Minds - Vektor (Outer Isolation, 2011)</p>
+</div>
+
+</body>
+
+
+<script>
+
+	function planetB() {
+		window.open("https://www.youtube.com/watch?v=oXcR_LVStKk");
+	}
+
+	function lucretia() {
+		window.open("https://www.youtube.com/watch?v=8JGLQKuUrvY");
+	}
+
+	function tornadoOfSouls() {
+		window.open("https://www.youtube.com/watch?v=sONL6QUMR9E");
+	}
+
+	function battery() {
+		window.open("https://www.youtube.com/watch?v=17E-zFb-0aE");
+	}
+
+	function disposableHeroes() {
+		window.open("https://www.youtube.com/watch?v=6rNELTZO0QQ");
+	}
+
+	function tetrastructuralMinds() {
+		window.open("https://www.youtube.com/watch?v=TjV9xe1QEME");
+	}
+
+	function angelOfDeath() {
+		window.open("https://www.youtube.com/watch?v=r7cWi41XGCM");
+	}
+
+	function search() {
+
+		const inputTitle = document.getElementById("songInput").value;
+
+		// console.log(inputTitle);
+
+		const lengthVariable = inputTitle.length;
+
+		// console.log(lengthVariable);
+
+
+		var myMusic = document.getElementsByClassName('music');
+
+		var i;
+		for (i = 0; i < myMusic.length; i++) {
+
+			const songs = document.getElementsByClassName('songinfo');
+			var songTitle = document.getElementsByClassName('songinfo')[i].innerHTML;
+
+			// console.log(songTitle);
+
+			for(const song of songs) {
+				// console.log(song.innerHTML, songTitle);
+				if(song.innerHTML.includes(inputTitle)) {
+					// console.log("hi");
+					console.log(songTitle);
+					console.log(song);
+					song.style.display = 'block';
+				} else {
+					// console.log("no");
+					song.style.display = 'none';
+				}
+			}
+		}
+
+	}
+
+</script>
+
+</html>

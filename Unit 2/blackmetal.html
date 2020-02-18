@@ -1,0 +1,119 @@
+
+<html>
+
+<head>
+	<title>Black Metal</title>
+	<!-- my style (css) file to set the different classes and ids for the website -->
+	<link rel="stylesheet" href="indexStyle.css">
+</head>
+
+
+<body>
+
+<div class="topnav">
+	<a href="index.html">Home</a>
+	<a href="reviews.html">Reviews</a>
+	<a href="listofbands.html">List of Bands</a>
+</div>
+
+<div class="title">
+	<h2 style="margin-top: 20px;">Black Metal</h2>
+	<h3>Click the play buttons to open up the song.</h3>
+</div>
+
+<!-- this code creates a search bar that is linked to a function below -->
+<div class="searchBar">
+	<input id="songInput" type="text" placeholder="Search.." name="search">
+	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="hades()"></button>
+	<p class='songinfo'>Hades - <a href="bathory.html">Bathory</a> (Hades, 1984)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="theSatanist()"></button>
+	<p class='songinfo'>The Satanist - <a href="behemoth.html">Behemoth</a> (The Satanist, 2014)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="downfall()"></button>
+	<p class='songinfo'>Downfall - <a href="childrenofbodom.html">Children of Bodom</a> (Hatebreeder, 1999)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="sunbather()"></button>
+	<p class='songinfo'>Sunbather - <a href="deafheaven.html">Deafheaven</a> (Sunbather, 2013)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="itTookTheNightToBelieve()"></button>
+	<p class='songinfo'>It Took the Night to Believe - Sunn O))) (Black One, 2017)</p>
+</div>
+
+</body>
+
+
+<script>
+
+	function downfall() {
+		window.open("https://www.youtube.com/watch?v=84Xg3m4tuGY");
+	}
+
+	function hades() {
+		window.open("https://www.youtube.com/watch?v=pVRWeVcFo5Q");
+	}
+
+	function sunbather() {
+		window.open("https://www.youtube.com/watch?v=3iBPBYuh4zk");
+	}
+
+	function theSatanist() {
+		window.open("https://www.youtube.com/watch?v=OGGwv3Zjq88");
+	}
+
+	function itTookTheNightToBelieve() {
+		window.open("https://www.youtube.com/watch?v=uTVNJWThv38");
+	}
+
+	function search() {
+
+		const inputTitle = document.getElementById("songInput").value;
+
+		// console.log(inputTitle);
+
+		const lengthVariable = inputTitle.length;
+
+		// console.log(lengthVariable);
+
+
+		var myMusic = document.getElementsByClassName('music');
+
+		var i;
+		for (i = 0; i < myMusic.length; i++) {
+
+			const songs = document.getElementsByClassName('songinfo');
+			var songTitle = document.getElementsByClassName('songinfo')[i].innerHTML;
+
+			// console.log(songTitle);
+
+			for(const song of songs) {
+				// console.log(song.innerHTML, songTitle);
+				if(song.innerHTML.includes(inputTitle)) {
+					// console.log("hi");
+					console.log(songTitle);
+					console.log(song);
+					song.style.display = 'block';
+				} else {
+					// console.log("no");
+					song.style.display = 'none';
+				}
+			}
+		}
+
+	}
+
+</script>
+
+</html>
