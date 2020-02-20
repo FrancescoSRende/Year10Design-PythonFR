@@ -86,6 +86,33 @@
 	color: #f1f1f1;
 }
 
+.sidenav3 {
+	height: 100%;
+	width: 350px;
+	position: absolute;
+	z-index: 1;
+	top: 300;
+	left: 740;
+	background-color: #111;
+	overflow-x: hidden;
+	padding-top: 10px;
+	margin-left: 8px;
+	margin-top: -150px;
+}
+
+.sidenav3 a {
+	font-family: 'Merriweather', serif;
+	padding: 0px 8px 10px 16px;
+	text-decoration: none;
+	font-size: 21px;
+	color: #818181;
+	display: block;
+}
+
+.sidenav3 a:hover {
+	color: #f1f1f1;
+}
+
 .playbutton {
 	width: 20px;
 	height: 20px;

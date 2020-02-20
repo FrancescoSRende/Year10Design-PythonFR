@@ -1,0 +1,155 @@
+
+<html>
+
+<head>
+	<title>Metal Songs to Pump You Up</title>
+	<!-- my style (css) file to set the different classes and ids for the website -->
+	<link rel="stylesheet" href="indexStyle.css">
+</head>
+
+
+<body>
+
+<div class="topnav">
+	<a href="index.html">Home</a>
+	<a href="reviews.html">Reviews</a>
+	<a href="listofbands.html">List of Bands</a>
+</div>
+
+<div class="title">
+	<h2 style="margin-top: 20px;">Metal Songs to Pump You Up</h2>
+	<h3>Click the play buttons to open up the song.</h3>
+</div>
+
+<!-- this code creates a search bar that is linked to a function below -->
+<div class="searchBar">
+	<input id="songInput" type="text" placeholder="Search.." name="search">
+	<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="oraProNobisLucifer()"></button>
+	<p class='songinfo'>Ora Pro Nobis Lucifer - <a href="behemoth.html">Behemoth</a> (The Satanist, 2014)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="downfall()"></button>
+	<p class='songinfo'>Downfall - <a href="childrenofbodom.html">Children of Bodom</a> (Hatebreeder, 1999)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="lEnfantSauvage()"></button>
+	<p class='songinfo'>L'Enfant Sauvage - <a href="gojira.html">Gojira</a> (L'Enfant Sauvage, 2012)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="holyWars()"></button>
+	<p class='songinfo'>Holy Wars... The Punishment Due - <a href="megadeth.html">Megadeth</a> (Rust In Peace, 1990)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="bleed()"></button>
+	<p class='songinfo'>Bleed - Meshuggah (obZen, 2008)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="masterOfPuppets()"></button>
+	<p class='songinfo'>Master of Puppets - <a href="metallica.html">Metallica</a> (Master of Puppets, 1986)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="walk()"></button>
+	<p class='songinfo'>Walk - <a href="pantera.html">Pantera</a> (Vulgar Display of Power, 1992)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="duHast()"></button>
+	<p class='songinfo'>Du Hast - Rammstein (Sehnsucht, 1997)</p>
+</div>
+
+<div class='music' style="display: block; visibility: visible;">
+	<button class='playbutton' onclick="thePot()"></button>
+	<p class='songinfo'>The Pot - <a href="tool.html">Tool</a> (10,000 Days, 2006)</p>
+</div>
+
+</body>
+
+
+<script>
+
+	function walk() {
+		window.open("https://www.youtube.com/watch?v=kOV2iTeGQik");
+	}
+
+	function downfall() {
+		window.open("https://www.youtube.com/watch?v=84Xg3m4tuGY");
+	}
+
+	function oraProNobisLucifer() {
+		window.open("https://www.youtube.com/watch?v=A225iNYjefA");
+	}
+
+	function holyWars() {
+		window.open("https://www.youtube.com/watch?v=J5o8Daw1ZsY");
+	}
+
+	function masterOfPuppets() {
+		window.open("https://www.youtube.com/watch?v=S7blkui3nQc");
+	}
+
+	function thePot() {
+		window.open("https://www.youtube.com/watch?v=civuoU_NE38");
+	}
+
+	function lEnfantSauvage() {
+		window.open("https://www.youtube.com/watch?v=tdVjuS_FhI4");
+	}
+
+	function bleed() {
+		window.open("https://www.youtube.com/watch?v=U4GXNzom6ik");
+	}
+
+	function duHast() {
+		window.open("https://www.youtube.com/watch?v=W3q8Od5qJio");
+	}
+
+	function search() {
+
+		const inputTitle = document.getElementById("songInput").value;
+
+		// console.log(inputTitle);
+
+		const lengthVariable = inputTitle.length;
+
+		// console.log(lengthVariable);
+
+
+		var myMusic = document.getElementsByClassName('music');
+
+		var i;
+		for (i = 0; i < myMusic.length; i++) {
+
+			const songs = document.getElementsByClassName('songinfo');
+			var songTitle = document.getElementsByClassName('songinfo')[i].innerHTML;
+
+			// console.log(songTitle);
+
+			for(const song of songs) {
+				// console.log(song.innerHTML, songTitle);
+				if(song.innerHTML.includes(inputTitle)) {
+					// console.log("hi");
+					console.log(songTitle);
+					console.log(song);
+					song.style.display = 'block';
+				} else {
+					// console.log("no");
+					song.style.display = 'none';
+				}
+			}
+		}
+
+	}
+
+</script>
+
+</html>
