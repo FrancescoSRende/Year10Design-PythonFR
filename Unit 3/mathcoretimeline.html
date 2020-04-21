@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- my style (css) file to set the different classes and ids for the website -->
+  <link rel="stylesheet" href="indexStyle.css">
+
+  <!-- HERE ARE YOUR FIREBASE and GOOGLE AUTHENICATION IMPORTS -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <!-- Add SDKs for Firebase products that you want to use 
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <title>Experimental/Progressive Metal Database</title>
+</head>
+
+
+<body style="background-color:white">
+
+<div class="topnav">
+  <a href="index.html">Home</a>
+  <a class="active" href="timeline.html">Timeline</a>
+  <a href="map.html">Map</a>
+  <a href="listofgenres.html">List of Genres</a>
+</div>
+
+<div class="title">
+  <h1>History of Mathcore</h1>
+</div>
+
+<div class="dropdown">
+  <button class="dropbtn">Genres</button>
+  <div class="dropdown-content">
+    <a href="timeline.html">General</a>
+    <a class="active" href="mathcoretimeline.html">Mathcore</a>
+    <a href="progressivemetalcoretimeline.html">Progressive Metalcore</a>
+    <a href="progmetaltimeline.html">Prog Metal</a>
+  </div>
+</div>
+
+
+
+<!-- original timeline code, where the background colour didn't work properly -->
+
+<!-- <div class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h2>2017</h2>
+      <p>Lorem ipsum..</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2016</h2>
+      <p>Lorem ipsum..</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>2015</h2>
+      <p>Lorem ipsum..</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2014</h2>
+      <p>Lorem ipsum..</p>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- this code is the creation of Stas Melnikov, via https://freefrontend.com/css-timelines/ -->
+
+<div class="page" style="margin-top: -70px;">
+
+
+
+  <div class="timeline">
+
+
+    <div class="timeline__group">
+      <span class="timeline__year">1999</span>
+
+
+      <div class="timeline__box">
+        <div class="timeline__date">
+          <span class="timeline__day">28</span>
+          <span class="timeline__month">Sep</span>
+        </div>
+        <div class="timeline__post">
+          <div class="timeline__content">
+            <p>The <a href="dillingerescapeplan.html">Dillinger Escape Plan</a> releases <a href="calculatinginfinity.html">Calculating Infinity</a>, a landmark mathcore/metalcore album, which saw the band use odd time signatures, strange rhythms, abrupt tempo changes and dissonant intervals. This initial release incorporated elements of grindcore, metalcore and hardcore punk.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="timeline__box">
+        <div class="timeline__date">
+          <span class="timeline__day">1</span>
+          <span class="timeline__month">Sept</span>
+        </div>
+        <div class="timeline__post">
+          <div class="timeline__content">
+            <p>Started from University of Pennsylvania. This is an important stage of my career. Here I worked in the local magazine. The experience greatly affected me</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="timeline__group">
+      <span class="timeline__year">2014</span>
+
+
+      <div class="timeline__box">
+        <div class="timeline__date">
+          <span class="timeline__day">14</span>
+          <span class="timeline__month">Jul</span>
+        </div>
+        <div class="timeline__post">
+          <div class="timeline__content">
+            <p>Travels to France, Italy, Spain, and Peru. After completing fashion editorial in Lima, prolongs stay to make portraits of local people in a daylight studio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="timeline__group">
+      <span class="timeline__year">2018</span>
+
+
+      <div class="timeline__box">
+        <div class="timeline__date">
+          <span class="timeline__day">9</span>
+          <span class="timeline__month">Nov</span>
+        </div>
+        <div class="timeline__post">
+          <div class="timeline__content">
+            <p>Architects releases 'Holy Hell', their eighth studio album, showcasing a blend of metalcore with technical guitar riffs and ambient synth and guitar parts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+</body>
+
+
+</html>
