@@ -68,7 +68,9 @@
         </div>
         <div class="timeline__post">
           <div class="timeline__content">
-            <p>Architects releases 'Holy Hell', their eighth studio album, showcasing a blend of metalcore with technical guitar riffs and ambient synth and guitar parts.</p>
+            <p><a class="tooltip" href="architects.html">Architects <span class="tooltiptext">Architects is a British progressive metalcore band, known for their technical, 'mathy' riffs and their incorporation of ambient music into metalcore.</span> </a>
+
+            releases 'Holy Hell', their eighth studio album, showcasing a blend of metalcore with technical guitar riffs and ambient synth and guitar parts.
           </div>
         </div>
       </div>
@@ -80,7 +82,159 @@
 </div>
 
 
+
+<h1 id="uid" style="color: white;"></h1>
+            
+            <!-- HERE IS YOUR HTML CODE TO SET TEXT -->
+            <h3>Have feedback to share? Want to correct a factual error or suggest a new page? Submit your ideas here.</h3>
+
+            <!-- here's the link to the firebase: user's can leave their comments expressing their furious expressions of disgust towards my music (via 'sendComment'). these comments can be retrieved (via 'getComment') and displayed on the website (in a numbered list) -->
+
+            <button style="width: 350px;" onclick = "signin()" >Sign In</button>
+           
+            <input style="width: 350px;" type="text" id="commentID" placeholder="Enter comment" name="comment">
+            
+            <button style="width: 350px;" onclick = "sendComment()">Submit Comment</button>
+            <button style="width: 350px;" onclick = "getComment()">Retrieve Comments</button>
+
+            <p>Current Comments in the Database:</p>
+
+            <!-- ol means ordered list -->
+            <p><ol id="commentList"></ol></p>
+
+
 </body>
+
+
+
+
+<script>
+
+
+      var provider = new firebase.auth.GoogleAuthProvider();
+      var userId = document.getElementById("uid").innerHTML;
+
+      var config = {
+
+        ///// COPY AND PASTE YOUR FIREBASE CONFIGURATION DATA HERE /////
+
+        apiKey: "AIzaSyCRLT-wBh6WvQzQp-g6Bi52oAZgtUcm0_g",
+        authDomain: "y10firebaseproject-frende.firebaseapp.com",
+        databaseURL: "https://y10firebaseproject-frende.firebaseio.com",
+        projectId: "y10firebaseproject-frende",
+        storageBucket: "y10firebaseproject-frende.appspot.com",
+        messagingSenderId: "660854506405",
+        appId: "1:660854506405:web:f91f74704aaaf20d42de4c",
+        measurementId: "G-LXCGXC6Y4Z"
+      }
+
+
+      firebase.initializeApp(config);
+      //firebase.analytics();
+
+      // Authentication Check: to see if you are logged in
+      firebase.auth().onAuthStateChanged(function(user) {
+          if (user == null) {
+              document.getElementById("uid").innerHTML = "not logged in";
+              return;
+          } else {
+              userId = user.uid; // you can also get .displayName, .photoURL, .email
+              document.getElementById("uid").innerHTML = userId; // display Google uid on page
+                
+          } // end user null check
+      }); // end check auth state
+
+
+      // Functions that will be used to "get" and "set" data, among other "helper"
+      // functions too...
+
+      function signin() {
+          var provider = new firebase.auth.GoogleAuthProvider();
+          firebase.auth().signInWithRedirect(provider).then(function(result) {
+          window.location.replace("fbtest.html");
+        });
+      } // end signin
+
+      function sendComment() {
+
+          // Create a database object that we can refer to
+          var database = firebase.database();
+
+          // Create a reference to a particular location or "node" called commentRepo
+          var ref = database.ref('progMetalComments');
+
+          // Grab the Name, Subject, and Grade obtained from the HTML frontend textboxes
+          var myComment = document.getElementById("commentID").value;
+           
+          // Create a JSON object to add to the database with user-inputted data
+          var data = {
+          
+             commentFIELD: myComment
+
+          }//end data
+
+          // "PUSH" means we add something to the database
+          ref.push(data);
+      } // end sendComment
+
+      function getComment() {
+
+          // Create a database object that we can refer to
+          var database = firebase.database();
+
+          // Create a reference to a particular location or "node"
+          // 'StudentInfo'is the name of the main branch in the database
+          var ref = database.ref('progMetalComments');
+
+          // we will make reference to each 'value' of a database object which will have
+          // two helper functions latched "on" to it to perform additional tasks
+          // - either we have access to data values, or we don't and there is an error
+
+          ref.on('value', gotData, errData)
+          // jump to the helper function...think of 'value' as the parameter that is passed
+
+      } // end getdata
+
+      function gotData(comments){
+
+          // clear items from previously created lists
+          document.getElementById('commentList').innerHTML = "";
+           
+          // collect all of the unique objects ('keys' or id's) out of the database
+          var commentData = comments.val(); // access the data 'value' of each student 'object'
+          var keys = Object.keys(commentData);
+          console.log(keys); //this works
+
+          // iterate through the unique object id's and grab data fields
+          for (var i = 0; i < keys.length; i++){
+            var k = keys[i];
+            var commentNODE = commentData[k].commentFIELD;
+            console.log (keys[i]);
+            console.log (commentNODE); //keeps coming up undefined!!!
+
+            // DISPLAY COMMENTS
+            // Create a reference to the ordered list called 'commentList'
+            // called 'oListStudent'
+            var oListComment = document.getElementById('commentList');
+            var entry = document.createElement('li'); // a list element to be added to the ordered list
+            entry.appendChild(document.createTextNode(commentNODE));
+            oListComment.appendChild(entry);
+             
+            // AJ: we only need to send information to the console window when we are debugging our code of errors
+            
+
+          }
+      }
+
+      function errData(err){
+        console.log('Error!')
+        console.log(err)
+      }
+
+  </script>
+
+
+
 
 
 </html>
