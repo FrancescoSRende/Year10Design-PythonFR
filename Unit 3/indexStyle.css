@@ -43,6 +43,16 @@
   margin-left: 5px;
 }
 
+/*the style code for the video descriptions is designed to not exceed a width of 560px, the width of the embedded youtube videos
+this ensures that the descriptions stay directly underneath their respective videos*/
+
+.videodescription {
+  font-family: 'Crimson Text', serif;
+  font-size: 18px;
+  margin-left: 5px;
+  width: 560px;
+}
+
 
 
 
@@ -59,7 +69,7 @@
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 300px;
+  width: 400px;
   background-color: black;
   color: #fff;
   text-align: center;
