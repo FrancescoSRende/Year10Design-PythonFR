@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- my style (css) file to set the different classes and ids for the website -->
+  <link rel="stylesheet" href="indexStyle.css">
+
+  <!-- HERE ARE YOUR FIREBASE and GOOGLE AUTHENICATION IMPORTS -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <!-- Add SDKs for Firebase products that you want to use 
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <title>Experimental/Progressive Metal Database</title>
+</head>
+
+
+<body style="background-color:white">
+
+<div class="topnav">
+  <a href="index.html">Home</a>
+  <a href="timeline.html">Timeline</a>
+  <a href="map.html">Map</a>
+  <a href="listofgenres.html">List of Genres</a>
+  <a class="active" href="commentpage.html">User Comments</a>
+</div>
+
+<div class="title">
+  <h1>User Comments</h1>
+</div>
+
+
+
+<h1 id="uid" style="color: white;"></h1>
+
+            <p style="position: absolute; top: 215px; left: 0px;">Current Comments in the Database:</p>
+
+            <button style="width: 350px; position: absolute; top: 250px; left: 0px;" onclick = "getComment1()">Retrieve Comments</button>
+
+            <button style="width: 350px; position: absolute; top: 250px; left: 350px;" onclick = "getComment2()">Retrieve Comments</button>
+
+
+            <!-- ol means ordered list -->
+            <p style="margin-top: 60px;"><ol id="commentList1"></ol></p>
+
+
+
+            <p><ol id="commentList2"></ol></p>
+
+
+</body>
+
+
+
+
+<script>
+
+
+      var provider = new firebase.auth.GoogleAuthProvider();
+      var userId = document.getElementById("uid").innerHTML;
+
+      var config = {
+
+        ///// COPY AND PASTE YOUR FIREBASE CONFIGURATION DATA HERE /////
+
+        apiKey: "AIzaSyCRLT-wBh6WvQzQp-g6Bi52oAZgtUcm0_g",
+        authDomain: "y10firebaseproject-frende.firebaseapp.com",
+        databaseURL: "https://y10firebaseproject-frende.firebaseio.com",
+        projectId: "y10firebaseproject-frende",
+        storageBucket: "y10firebaseproject-frende.appspot.com",
+        messagingSenderId: "660854506405",
+        appId: "1:660854506405:web:f91f74704aaaf20d42de4c",
+        measurementId: "G-LXCGXC6Y4Z"
+      }
+
+
+      firebase.initializeApp(config);
+      //firebase.analytics();
+
+      // Authentication Check: to see if you are logged in
+      firebase.auth().onAuthStateChanged(function(user) {
+          if (user == null) {
+              document.getElementById("uid").innerHTML = "not logged in";
+              return;
+          } else {
+              userId = user.uid; // you can also get .displayName, .photoURL, .email
+                
+          } // end user null check
+      }); // end check auth state
+
+
+      // Functions that will be used to "get" and "set" data, among other "helper"
+      // functions too...
+
+      function signin() {
+          var provider = new firebase.auth.GoogleAuthProvider();
+          firebase.auth().signInWithRedirect(provider).then(function(result) {
+          window.location.replace("fbtest.html");
+        });
+      } // end signin
+
+
+      function getComment1() {
+
+          // Create a database object that we can refer to
+          var database1 = firebase.database();
+
+          // Create a reference to a particular location or "node"
+          // 'StudentInfo'is the name of the main branch in the database
+          var ref1 = database1.ref('progMetalComments1');
+
+          // we will make reference to each 'value' of a database object which will have
+          // two helper functions latched "on" to it to perform additional tasks
+          // - either we have access to data values, or we don't and there is an error
+
+          ref1.on('value', gotData1, errData)
+          // jump to the helper function...think of 'value' as the parameter that is passed
+
+      } // end getdata
+
+      function gotData1(comments1){
+
+          // clear items from previously created lists
+          document.getElementById('commentList1').innerHTML = "";
+           
+          // collect all of the unique objects ('keys' or id's) out of the database
+          var commentData1 = comments1.val(); // access the data 'value' of each student 'object'
+          var keys1 = Object.keys(commentData1);
+          console.log(keys1); //this works
+
+          // iterate through the unique object id's and grab data fields
+          for (var i = 0; i < keys1.length; i++){
+            var k1 = keys1[i];
+            var commentNODE1 = commentData1[k1].commentFIELD1;
+            console.log (keys1[i]);
+            console.log (commentNODE1); //keeps coming up undefined!!!
+
+            // DISPLAY COMMENTS
+            // Create a reference to the ordered list called 'commentList'
+            // called 'oListStudent'
+            var oListComment1 = document.getElementById('commentList1');
+            var entry1 = document.createElement('li'); // a list element to be added to the ordered list
+            entry1.appendChild(document.createTextNode(commentNODE1));
+            oListComment1.appendChild(entry1);
+             
+            // AJ: we only need to send information to the console window when we are debugging our code of errors
+            
+
+          }
+      }
+
+
+
+
+      function getComment2() {
+
+          // Create a database object that we can refer to
+          var database2 = firebase.database();
+
+          // Create a reference to a particular location or "node"
+          // 'StudentInfo'is the name of the main branch in the database
+          var ref2 = database2.ref('progMetalComments2');
+
+          // we will make reference to each 'value' of a database object which will have
+          // two helper functions latched "on" to it to perform additional tasks
+          // - either we have access to data values, or we don't and there is an error
+
+          ref2.on('value', gotData2, errData)
+          // jump to the helper function...think of 'value' as the parameter that is passed
+
+      } // end getdata
+
+      function gotData2(comments2){
+
+          // clear items from previously created lists
+          document.getElementById('commentList2').innerHTML = "";
+           
+          // collect all of the unique objects ('keys' or id's) out of the database
+          var commentData2 = comments2.val(); // access the data 'value' of each student 'object'
+          var keys2 = Object.keys(commentData2);
+          console.log(keys2); //this works
+
+          // iterate through the unique object id's and grab data fields
+          for (var i = 0; i < keys2.length; i++){
+            var k2 = keys2[i];
+            var commentNODE2 = commentData2[k2].commentFIELD2;
+            console.log (keys2[i]);
+            console.log (commentNODE2); //keeps coming up undefined!!!
+
+            // DISPLAY COMMENTS
+            // Create a reference to the ordered list called 'commentList'
+            // called 'oListStudent'
+            var oListComment2 = document.getElementById('commentList2');
+            var entry2 = document.createElement('li'); // a list element to be added to the ordered list
+            entry2.appendChild(document.createTextNode(commentNODE2));
+            oListComment2.appendChild(entry2);
+             
+            // AJ: we only need to send information to the console window when we are debugging our code of errors
+            
+
+          }
+      }
+
+      function errData(err){
+        console.log('Error!')
+        console.log(err)
+      }
+
+  </script>
+
+
+
+
+
+</html>

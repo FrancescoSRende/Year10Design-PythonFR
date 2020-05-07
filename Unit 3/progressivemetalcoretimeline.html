@@ -26,6 +26,7 @@
   <a class="active" href="timeline.html">Timeline</a>
   <a href="map.html">Map</a>
   <a href="listofgenres.html">List of Genres</a>
+  <a href="commentpage.html">User Comments</a>
 </div>
 
 <div class="title">
@@ -50,7 +51,7 @@
 
 <!-- this code is the creation of Stas Melnikov, via https://freefrontend.com/css-timelines/ -->
 
-<div class="page" style="margin-top: -70px;">
+<div style="position: absolute; top: 400px; left: 350px;" class="page" style="margin-top: -70px;">
 
 
 
@@ -86,21 +87,21 @@
 <h1 id="uid" style="color: white;"></h1>
             
             <!-- HERE IS YOUR HTML CODE TO SET TEXT -->
-            <h3>Have feedback to share? Want to correct a factual error or suggest a new page? Submit your ideas here.</h3>
+            <h3 style="position: absolute; top: 250px; left: 0px;">Have feedback to share? Want to correct a factual error or suggest a new page? Submit your ideas here.</h3>
 
             <!-- here's the link to the firebase: user's can leave their comments expressing their furious expressions of disgust towards my music (via 'sendComment'). these comments can be retrieved (via 'getComment') and displayed on the website (in a numbered list) -->
 
-            <button style="width: 350px;" onclick = "signin()" >Sign In</button>
+            <button style="width: 350px; position: absolute; top: 310px; left: 0px;" onclick = "signin()" >Sign In</button>
            
-            <input style="width: 350px;" type="text" id="commentID" placeholder="Enter comment" name="comment">
+            <input style="width: 350px; position: absolute; top: 330px; left: 0px;" type="text" id="commentID1" placeholder="Enter correction here" name="comment1">
             
-            <button style="width: 350px;" onclick = "sendComment()">Submit Comment</button>
-            <button style="width: 350px;" onclick = "getComment()">Retrieve Comments</button>
+            <button style="width: 350px; position: absolute; top: 350px; left: 0px;" onclick = "sendComment1()">Submit Comment</button>
 
-            <p>Current Comments in the Database:</p>
+           
+            <input style="width: 350px; position: absolute; top: 330px; left: 350px;" type="text" id="commentID2" placeholder="Enter feedback here" name="comment2">
+            
+            <button style="width: 350px; position: absolute; top: 350px; left: 350px;" onclick = "sendComment2()">Submit Comment</button>
 
-            <!-- ol means ordered list -->
-            <p><ol id="commentList"></ol></p>
 
 
 </body>
@@ -139,7 +140,6 @@
               return;
           } else {
               userId = user.uid; // you can also get .displayName, .photoURL, .email
-              document.getElementById("uid").innerHTML = userId; // display Google uid on page
                 
           } // end user null check
       }); // end check auth state
@@ -155,81 +155,54 @@
         });
       } // end signin
 
-      function sendComment() {
+      function sendComment1() {
 
           // Create a database object that we can refer to
-          var database = firebase.database();
+          var database1 = firebase.database();
 
           // Create a reference to a particular location or "node" called commentRepo
-          var ref = database.ref('progMetalComments');
+          var ref1 = database1.ref('progMetalComments1');
 
           // Grab the Name, Subject, and Grade obtained from the HTML frontend textboxes
-          var myComment = document.getElementById("commentID").value;
+          var myComment1 = document.getElementById("commentID1").value;
            
           // Create a JSON object to add to the database with user-inputted data
-          var data = {
+          var data1 = {
           
-             commentFIELD: myComment
+             commentFIELD1: myComment1
 
           }//end data
 
           // "PUSH" means we add something to the database
-          ref.push(data);
+          ref1.push(data1);
       } // end sendComment
 
-      function getComment() {
+
+
+
+      function sendComment2() {
 
           // Create a database object that we can refer to
-          var database = firebase.database();
+          var database2 = firebase.database();
 
-          // Create a reference to a particular location or "node"
-          // 'StudentInfo'is the name of the main branch in the database
-          var ref = database.ref('progMetalComments');
+          // Create a reference to a particular location or "node" called commentRepo
+          var ref2 = database2.ref('progMetalComments2');
 
-          // we will make reference to each 'value' of a database object which will have
-          // two helper functions latched "on" to it to perform additional tasks
-          // - either we have access to data values, or we don't and there is an error
-
-          ref.on('value', gotData, errData)
-          // jump to the helper function...think of 'value' as the parameter that is passed
-
-      } // end getdata
-
-      function gotData(comments){
-
-          // clear items from previously created lists
-          document.getElementById('commentList').innerHTML = "";
+          // Grab the Name, Subject, and Grade obtained from the HTML frontend textboxes
+          var myComment2 = document.getElementById("commentID2").value;
            
-          // collect all of the unique objects ('keys' or id's) out of the database
-          var commentData = comments.val(); // access the data 'value' of each student 'object'
-          var keys = Object.keys(commentData);
-          console.log(keys); //this works
+          // Create a JSON object to add to the database with user-inputted data
+          var data2 = {
+          
+             commentFIELD2: myComment2
 
-          // iterate through the unique object id's and grab data fields
-          for (var i = 0; i < keys.length; i++){
-            var k = keys[i];
-            var commentNODE = commentData[k].commentFIELD;
-            console.log (keys[i]);
-            console.log (commentNODE); //keeps coming up undefined!!!
+          }//end data
 
-            // DISPLAY COMMENTS
-            // Create a reference to the ordered list called 'commentList'
-            // called 'oListStudent'
-            var oListComment = document.getElementById('commentList');
-            var entry = document.createElement('li'); // a list element to be added to the ordered list
-            entry.appendChild(document.createTextNode(commentNODE));
-            oListComment.appendChild(entry);
-             
-            // AJ: we only need to send information to the console window when we are debugging our code of errors
-            
+          // "PUSH" means we add something to the database
+          ref2.push(data2);
+      } // end sendComment
 
-          }
-      }
 
-      function errData(err){
-        console.log('Error!')
-        console.log(err)
-      }
 
   </script>
 
