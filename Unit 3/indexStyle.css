@@ -53,6 +53,15 @@ this ensures that the descriptions stay directly underneath their respective vid
   width: 560px;
 }
 
+/*i put two meshuggah songs on one page because they are a very important djent band, and i wanted the description to go underneath both
+of them, so i modified the previous class' style code*/
+
+.meshuggahvideodescription {
+  font-family: 'Crimson Text', serif;
+  font-size: 18px;
+  margin-left: 5px;
+  width: 1120px;
+}
 
 
 
