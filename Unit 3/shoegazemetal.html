@@ -21,27 +21,17 @@
 
 <body style="background-color:white">
 
-
-<!-- topnav for navigation, presents the main sub-pages of the website -->
-
 <div class="topnav">
-  <a href="index.html">Home</a>
-  <a href="timeline.html">Timeline</a>
-  <a href="map.html">Map</a>
-  <a href="listofgenres.html">List of Genres</a>
+	<a href="index.html">Home</a>
+	<a href="timeline.html">Timeline</a>
+	<a href="map.html">Map</a>
+	<a href="listofgenres.html">List of Genres</a>
   <a href="listofbands.html">List of Bands</a>
-  <a href="commentpage.html">User Comments</a>
+	<a href="commentpage.html">User Comments</a>
 </div>
 
 <div class="title">
-	<h1>Calculating Infinity - The Dillinger Escape Plan</h1>
-</div>
-
-<div>
-	<picture class="mainpics">
-		<source media="(max-width: 100px)" srcset="Album Images/calculating infinity.jpg">
-		<img style="width: 450px; height: 450px" class = "mainpics" src="Album Images/calculating infinity.jpg" alt="Avatar">
-	</picture>
+	<h1>Shoegaze Metal</h1>
 </div>
 
 
@@ -54,39 +44,47 @@
 </p> -->
 
 
-<!-- description of the band, featuring an example of the code above -->
+<p style="font-size: 18px; margin-left: 5px;">Shoegaze metal is a broad genre featuring conventional metal instrumentation mixed with the sound of shoegaze (ie. fuzzy distorted chords, often in a major key, and some clean sections).</p>
 
-<p style="font-size: 18px; margin-left: 5px;">Calculating Infinity was the <a href="dillingerescapeplan.html">Dillinger Escape Plan</a>'s debut album, and set the stage for the wave of mathcore bands which would follow them. They took the metalcore/hardcore punk formula and added in experimentation with dissonance (ie. major sevenths, harmonizing in minor seconds), odd time signatures, unconventional rhythms and polyrhythms and sudden time signature shifts. A perfect example of this sound is the song '43% Burnt', one of the band's most popular songs, and a perfect demonstration of this chaotic offshoot of metalcore.</p>
+<h2 style="margin-left: 5px;">Essential Listening</h2>
 
-<!-- embedded youtube video -->
+<!-- general 10 pixel rule for spacing between divs -->
 
-<iframe style="margin-left: 7px; margin-top: 7px;" width="560" height="460" src="https://www.youtube.com/embed/Zv8b6RPbnAc"></iframe>
+<iframe style="margin-left: 7px; margin-top: 7px; position: absolute; top: 310px; left: 0px;" width="560" height="460" src="https://www.youtube.com/embed/_t1vqLwqbyA"></iframe>
+
+<div class="videodescription" style="position: absolute; top: 780px; left: 0px;"><a href="deftones.html">Deftones</a> were the first band to mix shoegaze and metal, bringing a refreshing new take on nu/alternative metal.</div>
 
 
-<!-- comments for users to submit their feedback. the buttons used to retrieve the comments are on a different page, intended for the people running the website (ie. me) only -->
+<iframe style="margin-left: 7px; margin-top: 7px; position: absolute; top: 310px; left: 570px;" width="560" height="460" src="https://www.youtube.com/embed/3iBPBYuh4zk"></iframe>
+
+<div class="videodescription" style="position: absolute; top: 780px; left: 570px;">Deafheaven combined the shrieking vocals, harsh distortion and intense, often blast-beat, drumming of black metal with the fuzzy, ambient, psychedelic sound of shoegaze, and also included melodic, post-rock-esque clean sections.</div>
+
 
 <h1 id="uid" style="color: white;"></h1>
             
             <!-- HERE IS YOUR HTML CODE TO SET TEXT -->
-            <h3>Have feedback to share? Want to correct a factual error or suggest a new page? Submit your ideas here.</h3>
+            <h3 style="position: absolute; top: 860px; left: 0px;">Have feedback to share? Want to correct a factual error or suggest a new page? Submit your ideas here.</h3>
 
-            <!-- here's the link to the firebase: user's can leave their comments expressing their furious expressions of disgust towards my music (via 'sendComment'). these comments can be retrieved (via 'getComment') -->
+            <!-- here's the link to the firebase: user's can leave their comments expressing their furious expressions of disgust towards my music (via 'sendComment'). these comments can be retrieved (via 'getComment') and displayed on the website (in a numbered list) -->
+
+            <button style="width: 350px; position: absolute; top: 920px; left: 0px;" onclick = "signin()" >Sign In</button>
            
-            <input style="width: 350px;" type="text" id="commentID1" placeholder="Enter correction here" name="comment1">
+            <input style="width: 350px; position: absolute; top: 940px; left: 0px;" type="text" id="commentID1" placeholder="Enter correction here" name="comment1">
             
-            <button style="width: 350px;" onclick = "sendComment1()">Submit Comment</button>
+            <button style="width: 350px; position: absolute; top: 960px; left: 0px;" onclick = "sendComment1()">Submit Comment</button>
 
            
-            <input style="width: 350px;" type="text" id="commentID2" placeholder="Enter feedback here" name="comment2">
+            <input style="width: 350px; position: absolute; top: 940px; left: 350px;" type="text" id="commentID2" placeholder="Enter feedback here" name="comment2">
             
-            <button style="width: 350px;" onclick = "sendComment2()">Submit Comment</button>
+            <button style="width: 350px; position: absolute; top: 960px; left: 350px;" onclick = "sendComment2()">Submit Comment</button>
 
 
 
 </body>
 
 
-<!-- the script from last project used to connect to firebase. as with above, the code used to retrieve and display the code is on a different page -->
+
+
 
 <script>
 
@@ -184,5 +182,6 @@
 
 
   </script>
+
 
 </html>
