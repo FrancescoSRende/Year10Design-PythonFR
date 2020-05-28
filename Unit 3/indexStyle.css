@@ -66,7 +66,7 @@ of them, so i modified the previous class' style code*/
 
 
 
-
+/* this tooltip code makes boxes of text appear when someone hovers over certain lines of text */
 
 /* Tooltip container */
 .tooltip {
@@ -135,7 +135,7 @@ of them, so i modified the previous class' style code*/
 
 
 
-/*this code is the creation of Stas Melnikov, via https://freefrontend.com/css-timelines/*/
+/*this code for the vertical timeline is the creation of Stas Melnikov, via https://freefrontend.com/css-timelines/*/
 
 * {
   box-sizing: border-box;
@@ -196,6 +196,9 @@ of them, so i modified the previous class' style code*/
   left: 0;
   z-index: -1;
 }
+
+
+/* these boxes help organize events chronologically, by adding in different 'headers' with days and months */
 
 .timeline__date{
   min-width: 65px;
@@ -336,34 +339,6 @@ p:last-child{
   order: 1;
 }
 
-/*
-=====
-LinkedIn
-=====
-*/
-
-.linkedin{
-  background-color: #fff;
-  text-align: center;
-}
-
-.linkedin__container{
-  max-width: 1000px;
-  padding: 10px;
-  margin-left: auto;
-  margin-right: auto;  
-}
-
-.linkedin__text{
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.linkedin__link{
-  color: #ff5c5c;
-}
-
-
 
 
 /*style for the genre dropdown buttons*/
@@ -419,7 +394,7 @@ LinkedIn
 
 
 
-
+/* this code is similar to the topnav code, but it has been adapted to work on the main part of the page, for the subgenre dropdown menus*/
 
 .subgenre-dropbtn {
   background-color: #000000;
